@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decarbonization: The Greatest Engineering Challenge of Our Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+<style>
+:root {
+  /* NUS brand palette */
+  --nus-blue:   #003D7C;
+  --nus-navy:   #00285A;
+  --nus-orange: #EF7C00;
+  --nus-gold:   #F5A500;
+
+  /* supporting colours */
+  --green:  #059669;
+  --red:    #DC2626;
+  --purple: #7C3AED;
+  --teal:   #0891B2;
+  --amber:  #D97706;
+
+  /* neutrals */
+  --bg:     #FFFFFF;
+  --bg2:    #F8FAFC;
+  --bg3:    #F1F5F9;
+  --text:   #0F172A;
+  --muted:  #64748B;
+  --border: #CBD5E1;
+}
+
+/* ── override reveal white theme ── */
+.reveal-viewport { background: var(--bg); }
+.reveal .slide-background { background: var(--bg); }
+.reveal { font-family: 'Inter', sans-serif; color: var(--text); font-size: 38px; }
+
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: 'Inter', sans-serif; font-weight: 800;
+  text-transform: none; letter-spacing: -0.02em;
+  color: var(--nus-blue); text-shadow: none; margin-bottom: 0.3em;
+}
+.reveal h1 { font-size: 1.9em; }
+.reveal h2 { font-size: 1.45em; }
+.reveal p  { margin: 0.35em 0; }
+.reveal blockquote { box-shadow: none; }
+.reveal section { padding: 0 0.5em; }
+
+/* colour helpers */
+.nus-blue   { color: var(--nus-blue);   }
+.nus-orange { color: var(--nus-orange); }
+.green      { color: var(--green);      }
+.red        { color: var(--red);        }
+.muted      { color: var(--muted);      }
+
+/* big numbers */
+.huge-number { font-size: 7em; font-weight: 900; color: var(--nus-blue); line-height: 1; display: block; }
+.big-number  { font-size: 4em; font-weight: 900; color: var(--nus-blue); line-height: 1; display: block; }
+
+/* layout */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8em; }
+
+/* cards */
+.card {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1em 1.2em;
+}
+.card-blue   { border-color: var(--nus-blue);   background: rgba(0,61,124,0.05);   }
+.card-orange { border-color: var(--nus-orange); background: rgba(239,124,0,0.06);  }
+.card-green  { border-color: var(--green);      background: rgba(5,150,105,0.05);  }
+.card-red    { border-color: var(--red);        background: rgba(220,38,38,0.05);  }
+
+/* highlight box */
+.hbox {
+  background: rgba(0,61,124,0.06);
+  border-left: 4px solid var(--nus-blue);
+  border-radius: 0 8px 8px 0;
+  padding: 0.7em 1.2em;
+  color: var(--text); font-size: 0.82em; text-align: left;
+}
+.hbox-orange {
+  background: rgba(239,124,0,0.07);
+  border-left: 4px solid var(--nus-orange);
+  border-radius: 0 8px 8px 0;
+  padding: 0.7em 1.2em;
+  color: var(--text); font-size: 0.82em; text-align: left;
+}
+
+/* tables */
+.reveal table { font-size: 0.68em; width: 100%; border-collapse: collapse; }
+.reveal table th {
+  background: rgba(0,61,124,0.1); color: var(--nus-blue);
+  padding: 0.5em 0.9em; text-align: left;
+}
+.reveal table td {
+  padding: 0.45em 0.9em;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top; color: var(--text);
+}
+.reveal table tr:hover td { background: var(--bg3); }
+
+/* timeline */
+.timeline {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; position: relative; padding: 1.5em 0 0.5em;
+}
+.timeline::before {
+  content: ''; position: absolute; top: 2em; left: 5%; right: 5%;
+  height: 3px; background: linear-gradient(90deg, var(--nus-blue), var(--nus-orange));
+}
+.timeline-item { text-align: center; position: relative; z-index: 1; flex: 1; }
+.timeline-dot {
+  width: 18px; height: 18px; background: var(--nus-blue);
+  border-radius: 50%; margin: 0 auto 0.5em;
+  border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--nus-blue);
+}
+.timeline-year { font-size: 0.8em; font-weight: 800; color: var(--nus-blue); }
+.timeline-desc { font-size: 0.52em; color: var(--muted); max-width: 90px; margin: 0.2em auto 0; line-height: 1.3; }
+
+/* career */
+.career-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.7em; }
+.career-card {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 10px; padding: 0.9em; font-size: 0.65em;
+}
+.career-card .role { font-weight: 700; font-size: 1.05em; margin-bottom: 0.3em; }
+
+/* wrong/right */
+.wrong { color: var(--red); }
+.right { color: var(--green); }
+
+/* progress & slide number */
+.reveal .progress { color: var(--nus-orange); height: 4px; }
+.reveal .slide-number {
+  color: var(--nus-blue);
+  font-size: 0.75em;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  background: rgba(0,61,124,0.07);
+  border-radius: 6px;
+  padding: 4px 10px;
+  bottom: 12px;
+  right: 16px;
+}
+
+/* lists */
+.reveal ul { list-style: none; padding: 0; margin: 0; }
+.reveal ul li { margin-bottom: 0.4em; font-size: 0.82em; padding-left: 1.2em; position: relative; color: var(--text); }
+.reveal ul li::before { content: '▸'; color: var(--nus-blue); position: absolute; left: 0; }
+
+/* section label */
+.section-label {
+  color: var(--nus-orange); font-size: 0.62em; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.4em;
+  display: block;
+}
+
+/* dividers */
+.vline { width: 1px; background: var(--border); }
+.chart-box { position: relative; width: 100%; }
+
+/* accent bar below heading */
+.accent-bar {
+  width: 56px; height: 4px;
+  background: var(--nus-orange);
+  margin: 0.3em 0 0.7em;
+}
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ══════════════════════════════════════════
+     0 — TITLE
+     ══════════════════════════════════════════ -->
+<section data-background-color="#FFFFFF">
+  <div style="text-align:center;padding:0.6em 0.5em 0.4em;">
+
+    <!-- main word -->
+    <div style="font-size:3.2em;font-weight:900;color:var(--nus-blue);
+                letter-spacing:-0.03em;line-height:1;margin-bottom:0.15em;">
+      Decarbonization
+    </div>
+
+    <!-- orange accent bar -->
+    <div style="width:90px;height:5px;background:var(--nus-orange);
+                margin:0.35em auto 0.45em;border-radius:3px;"></div>
+
+    <!-- subtitle -->
+    <div style="font-size:0.95em;font-weight:600;color:var(--nus-navy);
+                line-height:1.35;margin-bottom:0.5em;">
+      The Greatest Environmental Engineering Problem<br>of Our Time
+    </div>
+
+    <!-- presenter -->
+    <div style="font-size:0.68em;font-weight:600;color:var(--nus-navy);
+                margin-bottom:1.4em;">
+      Shangwei Liu
+    </div>
+
+    <!-- bottom label: outreach info -->
+    <div style="display:inline-block;border:1px solid var(--border);
+                border-radius:8px;padding:0.45em 1.4em;font-size:0.52em;
+                color:var(--muted);letter-spacing:0.04em;line-height:1.9;">
+      CDE Outreach<br>
+      Department of Civil Engineering<br>
+      NUS
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     1 — ABOUT ME
+     ══════════════════════════════════════════ -->
+<section data-background-color="#FFFFFF">
+  <div style="display:grid;grid-template-columns:1fr 1px 1fr;gap:1.5em;align-items:stretch;">
+
+    <!-- ── LEFT: name + education ── -->
+    <div>
+      <p class="section-label">About Me</p>
+      <div style="font-size:1.05em;font-weight:900;color:var(--nus-blue);
+                  letter-spacing:-0.01em;margin-bottom:0.1em;">Shangwei Liu</div>
+      <div style="width:40px;height:3px;background:var(--nus-orange);
+                  border-radius:2px;margin-bottom:0.75em;"></div>
+
+      <div style="font-size:0.58em;font-weight:700;color:var(--nus-orange);
+                  text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.7em;">
+        Education Background
+      </div>
+
+      <!-- shared crest size: 56×56, all aligned -->
+
+      <!-- BNU -->
+      <div style="display:flex;gap:0.9em;align-items:flex-start;margin-bottom:0.7em;">
+        <img src="bnu-logo_square_75pc.png" width="56" height="56"
+             style="flex-shrink:0;object-fit:contain;">
+        <div style="text-align:left;">
+          <div style="font-size:0.62em;font-weight:900;letter-spacing:0.04em;
+                      color:var(--nus-blue);text-transform:uppercase;">
+            Beijing Normal University
+          </div>
+          <div style="font-size:0.55em;color:var(--muted);margin-top:0.15em;">
+            B.Sc. · Environmental Science
+          </div>
+        </div>
+      </div>
+
+      <!-- Princeton -->
+      <div style="display:flex;gap:0.9em;align-items:flex-start;margin-bottom:0.7em;">
+        <img src="princeton.svg" width="56" height="56"
+             style="flex-shrink:0;object-fit:contain;">
+        <div style="text-align:left;">
+          <div style="font-size:0.62em;font-weight:900;letter-spacing:0.04em;
+                      color:#E77500;text-transform:uppercase;">
+            Princeton University
+          </div>
+          <div style="font-size:0.55em;color:var(--muted);margin-top:0.15em;">
+            Ph.D. · Public Policy
+          </div>
+        </div>
+      </div>
+
+      <!-- Harvard -->
+      <div style="display:flex;gap:0.9em;align-items:flex-start;">
+        <img src="Harvard_University_coat_of_arms.svg.png" width="56" height="56"
+             style="flex-shrink:0;object-fit:contain;">
+        <div style="text-align:left;">
+          <div style="font-size:0.62em;font-weight:900;letter-spacing:0.04em;
+                      color:#A41034;text-transform:uppercase;">
+            Harvard University
+          </div>
+          <div style="font-size:0.55em;color:var(--muted);margin-top:0.15em;">
+            Postdoctoral Fellow · Environmental Policy
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- divider -->
+    <div style="background:var(--border);min-height:380px;"></div>
+
+    <!-- ── RIGHT: mission + research ── -->
+    <div>
+      <div style="font-size:0.58em;font-weight:700;color:var(--nus-orange);
+                  text-transform:uppercase;letter-spacing:0.12em;
+                  margin-bottom:0.55em;margin-top:1.6em;">
+        Mission
+      </div>
+
+      <div class="hbox" style="font-size:0.7em;margin-bottom:0.9em;">
+        Bridging engineering and technical analysis with <strong>policy and economic thinking</strong>
+      </div>
+
+      <div style="font-size:0.58em;font-weight:700;color:var(--nus-orange);
+                  text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.55em;">
+        Research Focus
+      </div>
+
+      <div class="card card-blue" style="margin-bottom:0.5em;font-size:0.68em;">
+        <div style="font-weight:700;color:var(--nus-blue);margin-bottom:0.2em;">
+          🌍 Decarbonize the whole economy
+        </div>
+        How do we decarbonize the whole economy to reach net zero?
+      </div>
+
+      <div class="card" style="font-size:0.68em;">
+        <div style="font-weight:700;color:var(--nus-navy);margin-bottom:0.2em;">
+          🌡️ Impact of climate change on our world
+        </div>
+        Understanding how a changing climate reshapes societies, economies, and ecosystems.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     2 — 800,000 YEARS OF CO₂  (idx 2 → co2Chart)
+     ══════════════════════════════════════════ -->
+<section data-background-color="#FFFFFF">
+  <h2>Atmospheric CO₂ Concentration over the Past 800,000 Years</h2>
+  <div class="accent-bar"></div>
+
+  <!-- chart + right annotation column -->
+  <div style="display:grid;grid-template-columns:60% 40%;gap:0.8em;margin-top:0.3em;align-items:stretch;">
+
+    <div class="chart-box" style="height:265px;">
+      <canvas id="co2Chart"></canvas>
+    </div>
+
+    <!-- annotation column: flex column, space-between, consistent format -->
+    <div style="display:flex;flex-direction:column;justify-content:space-between;
+                height:265px;padding:0.3em 0;font-size:0.63em;">
+
+      <!-- 2025 -->
+      <div style="border-left:3px solid var(--red);padding-left:0.75em;">
+        <div style="font-size:1.5em;font-weight:900;color:var(--red);line-height:1.1;">426 ppm</div>
+        <div style="font-weight:700;color:var(--red);margin-top:0.1em;">2025</div>
+        <div style="color:var(--muted);margin-top:0.1em;">Highest in 3 million years</div>
+      </div>
+
+      <!-- Year 2000 -->
+      <div style="border-left:3px solid var(--nus-orange);padding-left:0.75em;">
+        <div style="font-size:1.5em;font-weight:900;color:var(--nus-orange);line-height:1.1;">369 ppm</div>
+        <div style="font-weight:700;color:var(--nus-orange);margin-top:0.1em;">Year 2000</div>
+      </div>
+
+      <!-- Industrial Revolution -->
+      <div style="border-left:3px solid var(--nus-blue);padding-left:0.75em;">
+        <div style="font-size:1.5em;font-weight:900;color:var(--nus-blue);line-height:1.1;">~280 ppm</div>
+        <div style="font-weight:700;color:var(--nus-blue);margin-top:0.1em;">Industrial Revolution</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="fragment hbox" style="margin-top:0.5em;font-size:0.72em;">
+    Rapid rise since 1760 (Industrial Revolution) is largely driven by a <strong>fossil fuel economy</strong> —
+    burning coal, oil, and gas releases CO₂ stored underground for millions of years.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     3 — EMISSION SOURCES  [COMMENTED OUT]
+     ══════════════════════════════════════════
+<section data-background-color="#FFFFFF">
+  <h2>Where do Greenhouse Gas Emissions Come From?</h2>
+  <div class="accent-bar"></div>
+  <div class="chart-box" style="height:355px;margin:0.3em 0 0.2em;">
+    <canvas id="sourcesChart"></canvas>
+  </div>
+  <div style="text-align:right;font-size:0.48em;color:var(--muted);">
+    Source: Our World in Data · Climate Watch / World Resources Institute (2020) · IPCC AR6
+  </div>
+</section>
+-->
+
+<!-- ══════════════════════════════════════════
+     4 — EMISSION PATHWAYS  (idx 4 → pathwayChart)
+     ══════════════════════════════════════════ -->
+<section data-background-color="#FFFFFF">
+  <h2 style="font-size:1.2em;">Global CO₂ Emissions: Where We Need to Go</h2>
+  <div class="accent-bar"></div>
+  <div style="display:grid;grid-template-columns:65% 35%;gap:0.8em;margin-top:0.3em;align-items:stretch;">
+    <div>
+      <div class="chart-box" style="height:390px;">
+        <canvas id="pathwayChart"></canvas>
+      </div>
+      <div style="text-align:right;font-size:0.48em;color:var(--muted);margin-top:0.2em;">
+        Source: Global Carbon Project · IPCC AR6 (2022)
+      </div>
+    </div>
+    <div style="font-size:0.6em;padding:0.3em 1em 0.3em 0;text-align:left;">
+
+      <!-- Total share -->
+      <div style="font-weight:700;color:var(--nus-orange);text-transform:uppercase;
+                  letter-spacing:0.08em;margin-bottom:0.45em;">Total emissions (2025)</div>
+      <div style="display:grid;grid-template-columns:9em auto;
+                  row-gap:0.35em;column-gap:0.6em;margin-bottom:0.9em;">
+        <span>🇨🇳 China</span><strong>32 %</strong>
+        <span>🇺🇸 USA</span><strong>13 %</strong>
+        <span>🇮🇳 India</span><strong>8 %</strong>
+        <span>🇪🇺 EU27 + UK</span><strong>6 %</strong>
+      </div>
+
+      <!-- Per capita -->
+      <div style="font-weight:700;color:var(--nus-orange);text-transform:uppercase;
+                  letter-spacing:0.08em;margin-bottom:0.45em;">Per capita (t/person, 2023)</div>
+      <div style="display:grid;grid-template-columns:9em auto;
+                  row-gap:0.35em;column-gap:0.6em;">
+        <span>🇺🇸 USA</span><strong>13.8 t</strong>
+        <span>🇨🇳 China</span><strong>9.2 t</strong>
+        <span>🇸🇬 Singapore</span><strong>8.9 t</strong>
+        <span>🇪🇺 EU</span><strong>5.7 t</strong>
+        <span>🇮🇳 India</span><strong>2.1 t</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     5 — NET ZERO TIMELINE — NDC targets
+     ══════════════════════════════════════════ -->
+<section data-background-color="#FFFFFF">
+  <h2>Decarbonization Transition Timeline</h2>
+  <p style="font-size:0.62em;color:var(--muted);margin:0.1em 0 0.5em;">
+    Your entire career spans the critical transition period.
+  </p>
+  <div class="accent-bar"></div>
+
+  <!-- NDC table -->
+  <table style="font-size:0.62em;width:100%;margin-bottom:0.6em;">
+    <tr>
+      <th style="width:15%;">Country</th>
+      <th style="width:28%;">2030</th>
+      <th style="width:14%;">2050</th>
+      <th style="width:13%;">2060</th>
+      <th style="width:13%;">2070</th>
+    </tr>
+    <tr>
+      <td>🇺🇸 USA</td>
+      <td>−50 % vs 2005 levels</td>
+      <td style="color:var(--nus-blue);font-weight:700;">Net zero</td>
+      <td colspan="2" style="text-align:center;color:var(--green);font-weight:700;">Go Negative</td>
+    </tr>
+    <tr>
+      <td>🇪🇺 EU</td>
+      <td>−55 % vs 1990 levels</td>
+      <td style="color:var(--nus-blue);font-weight:700;">Net zero</td>
+      <td colspan="2" style="text-align:center;color:var(--green);font-weight:700;">Go Negative</td>
+    </tr>
+    <tr>
+      <td>🇸🇬 Singapore</td>
+      <td>Peak at 60 MtCO₂e</td>
+      <td style="color:var(--nus-blue);font-weight:700;">Net zero</td>
+      <td colspan="2" style="text-align:center;color:var(--green);font-weight:700;">Go Negative</td>
+    </tr>
+    <tr>
+      <td>🇨🇳 China</td>
+      <td>Emissions peak; −65 % carbon intensity vs 2005</td>
+      <td></td>
+      <td style="color:var(--nus-blue);font-weight:700;">Net zero</td>
+      <td style="color:var(--green);font-weight:700;">Go Negative</td>
+    </tr>
+    <tr>
+      <td>🇮🇳 India</td>
+      <td>−45 % carbon intensity vs 2005</td>
+      <td></td>
+      <td></td>
+      <td style="color:var(--nus-blue);font-weight:700;">Net zero</td>
+    </tr>
+  </table>
+
+  <div class="hbox" style="font-size:0.62em;border-color:var(--nus-orange);background:rgba(239,124,0,0.06);">
+    Timeline is based on <strong>Stated Aspirations</strong> — actual outcomes depend on policy, technology, and political will. We will see.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     6 — THE CENTRAL CHALLENGE
+     ══════════════════════════════════════════ -->
+<section data-background-color="#003D7C">
+  <div style="text-align:center;padding:0.5em 0;">
+    <p style="color:var(--nus-gold);font-size:0.65em;font-weight:700;
+              text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.6em;">
+      One of the Greatest Challenges of Our Time
+    </p>
+    <div style="font-size:2.6em;font-weight:900;color:#FFFFFF;
+                line-height:1.2;margin-bottom:0.4em;">
+      How do we decarbonize<br>the global economy?
+    </div>
+    <div style="width:80px;height:4px;background:var(--nus-gold);
+                margin:0.5em auto 0.8em;border-radius:2px;"></div>
+    <div style="font-size:0.78em;color:rgba(255,255,255,0.75);
+                max-width:700px;margin:0 auto;line-height:1.6;">
+      We must reduce global CO₂ emissions from <strong style="color:#fff;">~38 Gt/yr today</strong>
+      to <strong style="color:var(--nus-gold);">net zero</strong> within your working lifetime —
+      while powering a growing world economy.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     EMISSIONS TREEMAP
+     ══════════════════════════════════════════ -->
+<section data-background-color="#FFFFFF">
+  <h2>Where Do CO₂ Emissions Come From?</h2>
+  <div class="accent-bar"></div>
+
+  <!-- Treemap: CO₂-only data (IEA)
+       Row 1 (Electricity + Transportation + Industry = 86%): flex:86
+       Row 2 (Building Heat + Other = 14%):                  flex:14 -->
+  <div style="height:370px;display:flex;flex-direction:column;gap:4px;margin-top:0.3em;">
+
+    <!-- Row 1 — 86% of height -->
+    <div style="flex:86;display:flex;gap:4px;">
+
+      <!-- Electricity 41% -->
+      <div style="flex:41;background:#003D7C;border-radius:8px;
+                  display:flex;flex-direction:column;justify-content:center;
+                  align-items:center;color:#fff;text-align:center;padding:0.5em;">
+        <div style="font-size:0.78em;font-weight:700;margin-bottom:0.2em;">⚡ ELECTRICITY</div>
+        <div style="font-size:2em;font-weight:900;line-height:1;">41 %</div>
+        <div style="font-size:0.6em;opacity:0.75;margin-top:0.35em;line-height:1.4;">
+          Industry · Buildings · EVs · Data centres
+        </div>
+      </div>
+
+      <!-- Transportation 24% -->
+      <div style="flex:24;background:#F59E0B;border-radius:8px;
+                  display:flex;flex-direction:column;justify-content:center;
+                  align-items:center;color:#fff;text-align:center;padding:0.5em;">
+        <div style="font-size:0.75em;font-weight:700;margin-bottom:0.2em;">🚗 TRANSPORTATION</div>
+        <div style="font-size:1.6em;font-weight:900;line-height:1;">24 %</div>
+        <div style="font-size:0.58em;opacity:0.8;margin-top:0.3em;">Road · Shipping · Aviation</div>
+      </div>
+
+      <!-- Industry 21% -->
+      <div style="flex:21;background:#EF7C00;border-radius:8px;
+                  display:flex;flex-direction:column;justify-content:center;
+                  align-items:center;color:#fff;text-align:center;padding:0.5em;">
+        <div style="font-size:0.75em;font-weight:700;margin-bottom:0.2em;">🏭 INDUSTRY</div>
+        <div style="font-size:1.5em;font-weight:900;line-height:1;">21 %</div>
+        <div style="font-size:0.58em;opacity:0.8;margin-top:0.3em;">Steel · Cement · Chemicals</div>
+      </div>
+
+    </div>
+
+    <!-- Row 2 — 14% of height, fixed to prevent overflow -->
+    <div style="height:52px;flex-shrink:0;display:flex;gap:4px;">
+
+      <!-- Building Heat 9% -->
+      <div style="flex:9;background:#0891B2;border-radius:8px;
+                  display:flex;flex-direction:column;justify-content:center;
+                  align-items:center;color:#fff;text-align:center;
+                  padding:0 0.4em;overflow:hidden;">
+        <div style="font-size:0.58em;font-weight:700;white-space:nowrap;">🔥 BUILDING HEAT DIRECT COMBUSTION &nbsp;9 %</div>
+      </div>
+
+      <!-- Others 5% -->
+      <div style="flex:5;background:#64748B;border-radius:8px;
+                  display:flex;flex-direction:column;justify-content:center;
+                  align-items:center;color:#fff;text-align:center;
+                  padding:0 0.3em;overflow:hidden;">
+        <div style="font-size:0.6em;font-weight:700;white-space:nowrap;">OTHERS &nbsp;5 %</div>
+      </div>
+
+    </div>
+  </div>
+  <div style="font-size:0.45em;color:var(--muted);text-align:right;margin-top:0.2em;">
+    Source: IEA (2023) — fossil fuel CO₂ only
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION: POWER SYSTEMS
+     ══════════════════════════════════════════ -->
+
+<!-- POWER-1: Where does electricity come from? -->
+<section data-background-color="#FFFFFF">
+  <h2>Where Does Electricity Come From Today?</h2>
+  <div class="accent-bar"></div>
+  <div style="display:grid;grid-template-columns:58% 42%;gap:1.2em;margin-top:0.5em;align-items:stretch;">
+    <div>
+      <div style="font-size:0.6em;font-weight:700;color:var(--nus-orange);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.6em;">Global electricity mix (2023)</div>
+      <div class="chart-box" style="height:330px;"><canvas id="powerMixChart"></canvas></div>
+      <div style="font-size:0.45em;color:var(--muted);text-align:right;margin-top:0.2em;">Source: IEA 2023</div>
+    </div>
+    <div>
+      <div style="font-size:0.6em;font-weight:700;color:var(--nus-orange);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.7em;">Singapore electricity mix (2023)</div>
+      <div style="font-size:0.72em;">
+        <div style="margin-bottom:0.65em;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.2em;"><span>Natural gas</span><strong>95 %</strong></div>
+          <div style="height:20px;background:#E2E8F0;border-radius:4px;">
+            <div style="height:100%;background:#9CA3AF;border-radius:4px;width:95%;"></div>
+          </div>
+        </div>
+        <div style="margin-bottom:0.65em;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.2em;"><span>Solar</span><strong>4 %</strong></div>
+          <div style="height:20px;background:#E2E8F0;border-radius:4px;">
+            <div style="height:100%;background:#FBBF24;border-radius:4px;width:4%;min-width:6px;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.2em;"><span>Other</span><strong>1 %</strong></div>
+          <div style="height:20px;background:#E2E8F0;border-radius:4px;">
+            <div style="height:100%;background:#D1D5DB;border-radius:4px;width:1%;min-width:4px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="fragment hbox" style="margin-top:1em;font-size:0.72em;">
+        Singapore runs almost entirely on <strong>natural gas</strong>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POWER-2: Wind & Solar growth chart -->
+<section data-background-color="#FFFFFF">
+  <h2>Wind &amp; Solar: The Fastest-Growing Energy Sources in History</h2>
+  <div class="accent-bar"></div>
+
+  <div style="display:grid;grid-template-columns:60% 40%;gap:1em;margin-top:0.3em;align-items:start;">
+    <div>
+      <div class="chart-box" style="height:340px;"><canvas id="renewChart"></canvas></div>
+      <div style="font-size:0.45em;color:var(--muted);text-align:right;margin-top:0.2em;">Source: IRENA, IEA (2024)</div>
+    </div>
+    <div style="font-size:0.65em;padding-top:0.3em;">
+
+      <div style="font-weight:800;color:var(--red);font-size:1.05em;margin-bottom:0.5em;">
+        ⚠ Intermittency
+      </div>
+      <p style="color:var(--text);margin-bottom:0.8em;">
+        Wind and solar are not always available. Integrating them requires the <strong>entire electricity system to be restructured.</strong>
+      </p>
+
+      <div style="color:var(--muted);font-size:0.9em;line-height:1.7;">
+        🏗 New <strong>infrastructure</strong><br>
+        📊 New <strong>emissions accounting</strong><br>
+        💼 New <strong>economics &amp; business models</strong>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- POWER-3: Solar cost (solarChart) -->
+<section data-background-color="#FFFFFF">
+  <h2>Solar Energy: <span class="nus-orange">99 % cheaper in 40 years</span></h2>
+  <div class="accent-bar"></div>
+
+  <div style="display:grid;grid-template-columns:62% 38%;gap:1.2em;margin-top:0.3em;align-items:stretch;">
+
+    <div>
+      <div class="chart-box" style="height:330px;"><canvas id="solarChart"></canvas></div>
+      <div style="font-size:0.45em;color:var(--muted);text-align:right;margin-top:0.2em;">Source: Our World in Data / IRENA</div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:0.9em;font-size:0.68em;padding-top:0.3em;">
+
+      <!-- Quote -->
+      <div style="border-left:4px solid var(--nus-orange);
+                  padding:0.6em 0.9em;background:rgba(239,124,0,0.05);
+                  border-radius:0 8px 8px 0;font-style:italic;color:var(--text);width:100%;box-sizing:border-box;">
+        "An engineer is someone who can do for a dime what any fool can do for a dollar."
+        <div style="margin-top:0.4em;font-style:normal;font-size:0.85em;color:var(--muted);">
+          — Arthur M. Wellington
+        </div>
+      </div>
+
+      <!-- Core message -->
+      <div style="color:var(--text);line-height:1.6;">
+        A core engineering challenge is <strong>driving costs down</strong> — making clean energy cheap enough for the whole world to adopt. Solar shows it is possible.
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- POWER-4: Energy Security Trilemma -->
+<section data-background-color="#FFFFFF">
+  <h2>The Energy Trilemma</h2>
+  <div class="accent-bar"></div>
+  <p style="font-size:0.72em;color:var(--muted);margin-bottom:0.8em;">Every country faces a trade-off between three goals — you cannot fully optimise all three at once.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1em;font-size:0.73em;margin-bottom:0.8em;">
+    <div class="card card-blue" style="text-align:center;padding:1.2em;">
+      <div style="font-size:2em;margin-bottom:0.3em;">🔒</div>
+      <div style="font-weight:800;color:var(--nus-blue);font-size:1.1em;margin-bottom:0.3em;">Security</div>
+      <div style="color:var(--muted);">Is the power always on? Can we survive supply disruptions?</div>
+    </div>
+    <div class="card card-orange" style="text-align:center;padding:1.2em;">
+      <div style="font-size:2em;margin-bottom:0.3em;">💰</div>
+      <div style="font-weight:800;color:var(--nus-orange);font-size:1.1em;margin-bottom:0.3em;">Affordability</div>
+      <div style="color:var(--muted);">Can households and industry afford it? Does it harm economic growth?</div>
+    </div>
+    <div class="card card-green" style="text-align:center;padding:1.2em;">
+      <div style="font-size:2em;margin-bottom:0.3em;">🌿</div>
+      <div style="font-weight:800;color:var(--green);font-size:1.1em;margin-bottom:0.3em;">Sustainability</div>
+      <div style="color:var(--muted);">Is it low-carbon? Does it protect air, water, and land?</div>
+    </div>
+  </div>
+  <div class="hbox" style="font-size:0.78em;">
+    To decarbonize, engineers and policymakers must <strong>navigate this trilemma</strong> — finding pathways that reduce emissions without sacrificing energy security or economic growth.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION: TRANSPORT (EV)
+     ══════════════════════════════════════════ -->
+
+<!-- EV-1: Emissions vs ICE -->
+<section data-background-color="#FFFFFF">
+  <h2>Electric Vehicles: How Much Cleaner?</h2>
+  <div class="accent-bar"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2em;margin-top:0.6em;font-size:0.73em;align-items:stretch;">
+    <div>
+      <p style="color:var(--muted);margin-bottom:0.8em;">Lifecycle CO₂ per km — including manufacturing &amp; electricity generation:</p>
+      <div style="margin-bottom:0.7em;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.2em;"><span style="font-weight:600;">Petrol / Diesel car</span><strong style="color:var(--red);">~170 g CO₂/km</strong></div>
+        <div style="height:22px;background:#E2E8F0;border-radius:4px;">
+          <div style="height:100%;background:var(--red);border-radius:4px;width:100%;"></div>
+        </div>
+      </div>
+      <div style="margin-bottom:0.7em;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.2em;"><span style="font-weight:600;">EV on average global grid</span><strong style="color:var(--nus-orange);">~80 g CO₂/km</strong></div>
+        <div style="height:22px;background:#E2E8F0;border-radius:4px;">
+          <div style="height:100%;background:var(--nus-orange);border-radius:4px;width:47%;"></div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.2em;"><span style="font-weight:600;">EV on clean grid</span><strong style="color:var(--green);">~20 g CO₂/km</strong></div>
+        <div style="height:22px;background:#E2E8F0;border-radius:4px;">
+          <div style="height:100%;background:var(--green);border-radius:4px;width:12%;"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="fragment card card-green" style="margin-bottom:0.7em;">
+        <strong>Key insight:</strong> The cleaner the grid, the cleaner the EV. Decarbonizing power and transport are <em>linked</em>.
+      </div>
+      <div class="fragment card card-orange">
+        <strong>Singapore:</strong> EVs today run mostly on natural gas. As solar grows, every EV automatically gets cleaner — no hardware change needed.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EV-2: Global trends + Singapore policy (evChart) -->
+<section data-background-color="#FFFFFF">
+  <h2>The EV Revolution Is Already Here</h2>
+  <div class="accent-bar"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2em;margin-top:0.5em;align-items:stretch;">
+    <div>
+      <div style="font-size:0.6em;font-weight:700;color:var(--nus-orange);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.6em;">Global EV share of new car sales (%)</div>
+      <div class="chart-box" style="height:250px;"><canvas id="evChart"></canvas></div>
+    </div>
+    <div style="font-size:0.68em;display:flex;flex-direction:column;gap:0.5em;">
+      <div class="card card-blue" style="padding:0.7em 1em;">
+        <div style="font-weight:800;color:var(--nus-blue);">🇨🇳 China &nbsp;—&nbsp; <span style="color:var(--muted);font-weight:400;">40 % EVs (2024)</span></div>
+      </div>
+      <div class="card card-orange" style="padding:0.7em 1em;">
+        <div style="font-weight:800;color:var(--nus-orange);">🇪🇺 Europe &nbsp;—&nbsp; <span style="color:var(--muted);font-weight:400;">100 % target by 2035</span></div>
+      </div>
+      <div class="card card-blue" style="padding:0.7em 1em;">
+        <div style="font-weight:800;color:var(--nus-blue);">🇸🇬 Singapore &nbsp;—&nbsp; <span style="color:var(--muted);font-weight:400;">No new petrol cars by 2030</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION: MARINE / SHIPPING
+     ══════════════════════════════════════════ -->
+
+<!-- MARINE-1: Singapore shipping hub -->
+<section data-background-color="#FFFFFF">
+  <h2>Singapore: <span class="nus-orange">Hub of Global Shipping</span></h2>
+  <div class="accent-bar"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2em;margin-top:0.5em;font-size:0.73em;align-items:center;">
+    <div>
+      <div class="grid-2" style="gap:0.6em;margin-bottom:0.7em;">
+        <div class="card card-blue" style="text-align:center;">
+          <div style="font-size:2.2em;font-weight:900;color:var(--nus-blue);line-height:1;">#1</div>
+          <div style="color:var(--muted);font-size:0.85em;">Largest bunkering port in the world</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:2.2em;font-weight:900;color:var(--nus-navy);line-height:1;">3,000+</div>
+          <div style="color:var(--muted);font-size:0.85em;">Ships refuel every month</div>
+        </div>
+        <div class="card card-orange" style="text-align:center;grid-column:span 2;">
+          <div style="font-size:2em;font-weight:900;color:var(--nus-orange);line-height:1;">S$50B+</div>
+          <div style="color:var(--muted);font-size:0.85em;">Annual bunkering revenue</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="fragment hbox" style="font-size:0.85em;margin-bottom:0.7em;">
+        The Strait of Malacca — one of the world's busiest waterways — runs through Singapore's backyard. Over <strong>80,000 vessels</strong> transit it each year.
+      </div>
+      <div class="fragment card card-blue" style="font-size:0.85em;">
+        Singapore's maritime sector contributes <strong>~7 % of GDP</strong>. Shipping decarbonization is not just an environmental issue — it is an <strong>economic survival question.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARINE-1b: Shipping traffic map (Leaflet) -->
+<section data-background-color="#0d1b2e">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <div style="display:grid;grid-template-rows:auto 1fr auto;height:680px;gap:0.4em;">
+
+    <div style="text-align:center;padding:0.3em 0;">
+      <h2 style="color:#FFFFFF;margin-bottom:0.1em;">Right Now, Thousands of Ships Are at Sea</h2>
+      <p style="font-size:0.58em;color:rgba(255,255,255,0.5);margin-bottom:0.3em;">
+        Real-time Map · zoom and pan to explore
+      </p>
+      <div class="fragment" style="display:flex;gap:1em;justify-content:center;flex-wrap:wrap;font-size:0.48em;color:rgba(255,255,255,0.6);">
+        <span style="color:rgba(255,255,255,0.4);">Legend:</span>
+        <span>🟦 Cargo</span>
+        <span>🟩 Oil / Chemical Tanker</span>
+        <span>🟥 Passenger</span>
+        <span>🟧 High-speed</span>
+        <span>🟪 Fishing</span>
+      </div>
+    </div>
+
+    <iframe
+      src="https://www.marinetraffic.com/en/ais/embed/maptype:0/shownames:false/mmsi:0/showmenu:false/remember:false/zoom:3/centerx:163.5/centery:6.6"
+      style="width:100%;height:100%;border:none;border-radius:10px;"
+      allowfullscreen>
+    </iframe>
+
+    <div style="text-align:center;padding-bottom:0.2em;">
+      <p style="font-size:1em;font-weight:700;color:#F5A500;">
+        What are all these ships carrying? →
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- MARINE-2: 40% shipping = fossil fuel -->
+<section data-background-color="#003D7C">
+  <span class="huge-number fragment" style="color:#FFFFFF;">40 %</span>
+  <p class="fragment" style="font-size:1.05em;margin-top:0.3em;color:#FFFFFF;">
+    of global shipping tonnage is <strong style="color:var(--nus-gold);">fossil fuel.</strong>
+  </p>
+  <p class="fragment" style="font-size:0.73em;color:rgba(255,255,255,0.7);margin-top:0.5em;max-width:680px;margin-left:auto;margin-right:auto;">
+    Oil tankers, LNG carriers, coal bulk carriers — nearly half of everything on the world's oceans is the fuel we are trying to stop burning. Nearly every ship runs on <strong style="color:#fff;">heavy fuel oil</strong>.
+  </p>
+  <div class="fragment" style="margin-top:1em;background:rgba(255,255,255,0.12);border-left:4px solid var(--nus-gold);border-radius:0 8px 8px 0;padding:0.7em 1.2em;font-size:0.82em;color:#fff;">
+    If shipping decarbonises, Singapore's entire bunkering economy must transform. <strong style="color:var(--nus-gold);">IMO target: net zero shipping by 2050.</strong>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     SECTION: FOOD SYSTEMS
+     ══════════════════════════════════════════ -->
+
+<!-- FOOD-1: Interactive question -->
+<section data-background-color="#FFFFFF">
+  <div style="text-align:center;">
+    <p class="section-label" style="margin-bottom:0.6em;">Quick question</p>
+    <h2 style="font-size:1.3em;line-height:1.4;">Which of these has the <strong>highest carbon footprint</strong>?</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1em;margin:1em 0;font-size:0.75em;">
+
+      <div class="card fragment" style="padding:0.7em;text-align:center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Rendang_daging_sapi_asli_Padang.JPG/250px-Rendang_daging_sapi_asli_Padang.JPG"
+             style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:0.4em;">
+        <div style="font-weight:700;">Beef Rendang</div>
+      </div>
+
+      <div class="card fragment" style="padding:0.7em;text-align:center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Hainanese_Chicken_Rice.jpg/330px-Hainanese_Chicken_Rice.jpg"
+             style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:0.4em;">
+        <div style="font-weight:700;">Chicken Rice</div>
+      </div>
+
+      <div class="card fragment" style="padding:0.7em;text-align:center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Char_kway_teow.jpg/250px-Char_kway_teow.jpg"
+             style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:0.4em;">
+        <div style="font-weight:700;">Char Kway Teow</div>
+      </div>
+
+      <div class="card fragment" style="padding:0.7em;text-align:center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Hakka_yong_tau_foo_with_noodles.jpg/250px-Hakka_yong_tau_foo_with_noodles.jpg"
+             style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:0.4em;">
+        <div style="font-weight:700;">Yong Tau Foo</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOD-2: Answer + food chart (foodChart) -->
+<section data-background-color="#FFFFFF">
+  <h2>The Answer: <span class="red">Beef</span></h2>
+  <div class="accent-bar"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2em;margin-top:0.4em;align-items:stretch;">
+    <div>
+      <div class="chart-box" style="height:265px;"><canvas id="foodChart"></canvas></div>
+      <div style="font-size:0.45em;color:var(--muted);margin-top:0.3em;line-height:1.5;">
+        <span style="color:var(--nus-orange);font-weight:600;">Note:</span>
+        Simplified median values — actual emissions vary significantly by farming system, geography, and feed type.
+        Beef and lamb can range from 10 to over 100 kg CO₂eq/kg depending on how they are raised.<br>
+        Source: Poore &amp; Nemecek (2018) <em>Science</em> · ourworldindata.org/grapher/ghg-per-kg-poore
+      </div>
+    </div>
+    <div style="font-size:0.72em;">
+      <div class="card card-red" style="margin-bottom:0.7em;">
+        <div style="font-size:1.6em;font-weight:900;color:var(--red);">60 kg CO₂</div>
+        <div style="color:var(--muted);">per kg of beef produced</div>
+      </div>
+      <div class="fragment card" style="margin-bottom:0.6em;">
+        <strong>Why so much?</strong><br>
+        <span style="color:var(--muted);">Cattle release <strong>methane</strong> through digestion — 80× more potent than CO₂. Add land clearing, feed crops, and water use.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD-3: Livestock methane infographic -->
+<section data-background-color="#FFFFFF">
+  <h2>Why Beef? Livestock Produce Enormous Amounts of Methane</h2>
+  <div class="accent-bar"></div>
+  <div style="display:grid;grid-template-columns:62% 38%;gap:1.2em;margin-top:0.3em;align-items:start;">
+    <div>
+      <img src="ag-climate-livestock-methane-emissions-infographic-1058px.png"
+           style="width:100%;border-radius:8px;max-height:420px;object-fit:contain;">
+    </div>
+    <div style="font-size:0.72em;display:flex;flex-direction:column;gap:0.8em;padding-top:0.5em;">
+      <div>
+        <div style="font-weight:700;color:var(--nus-blue);margin-bottom:0.2em;">① Livestock emit Methane (CH₄)</div>
+        <div style="color:var(--muted);">Microbes in the stomach ferment feed and produce CH₄, released mainly through belching.</div>
+      </div>
+      <div>
+        <div style="font-weight:700;color:var(--red);margin-bottom:0.2em;">② CH₄ is a very potent greenhouse gas</div>
+        <div style="color:var(--muted);">Methane is over 80× more powerful than CO₂ over 20 years — even small amounts cause significant warming.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD-4: Food as a decarbonization challenge -->
+<section data-background-color="#FFFFFF">
+  <h2>What We Eat Is Also a Decarbonization Problem</h2>
+  <div class="accent-bar"></div>
+  <p style="font-size:0.75em;color:var(--text);margin-bottom:0.8em;">
+    Food systems account for <strong>~26 %</strong> of global greenhouse gas emissions.
+  </p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.7em;font-size:0.7em;">
+    <div class="card card-blue">
+      <div style="font-weight:700;color:var(--nus-blue);margin-bottom:0.2em;">📊 Measurement &amp; Cost</div>
+      How do we accurately measure emissions across farms and supply chains — and which interventions reduce the most at the lowest cost?
+    </div>
+    <div class="card card-orange">
+      <div style="font-weight:700;color:var(--nus-orange);margin-bottom:0.2em;">🔬 Decarbonization Approaches &amp; Interventions</div>
+      Feed additives, land management, alternative proteins — what actually works, and at what scale?
+    </div>
+    <div class="card card-green">
+      <div style="font-weight:700;color:var(--green);margin-bottom:0.2em;">🍜 Food Culture</div>
+      How do we change food systems while respecting cultural identity and the way people have eaten for generations?
+    </div>
+    <div class="card" style="border-color:var(--purple);background:rgba(124,58,237,0.05);">
+      <div style="font-weight:700;color:var(--purple);margin-bottom:0.2em;">🥗 Health</div>
+      Can lower-carbon diets align with the growing demand for healthier eating — or do the two goals conflict?
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BACK TO THE BIG PICTURE
+     ══════════════════════════════════════════ -->
+<section data-background-color="#003D7C">
+  <div style="text-align:center;padding:0.3em 0;">
+    <p style="color:var(--nus-gold);font-size:0.65em;font-weight:700;
+              text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5em;">
+      One of the Greatest Engineering Challenges of Our Time
+    </p>
+    <h2 style="color:#FFFFFF;font-size:1.6em;line-height:1.2;margin-bottom:0.6em;">
+      How do we decarbonize<br>the whole economy?
+    </h2>
+    <div style="width:80px;height:4px;background:var(--nus-gold);margin:0 auto 0.8em;border-radius:2px;"></div>
+
+    <!-- Sectors grid -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.7em;
+                font-size:0.58em;max-width:980px;margin:0 auto;">
+      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:0.8em 0.5em;">
+        <div style="font-size:1.8em;margin-bottom:0.2em;">⚡</div>
+        <div style="font-weight:700;color:#fff;">Electricity</div>
+        <div style="color:rgba(255,255,255,0.55);margin-top:0.2em;font-size:0.9em;">Intermittency · Grid · Cost</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:0.8em 0.5em;">
+        <div style="font-size:1.8em;margin-bottom:0.2em;">🚗</div>
+        <div style="font-weight:700;color:#fff;">Transport</div>
+        <div style="color:rgba(255,255,255,0.55);margin-top:0.2em;font-size:0.9em;">EVs · Shipping · Aviation</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:0.8em 0.5em;">
+        <div style="font-size:1.8em;margin-bottom:0.2em;">🚢</div>
+        <div style="font-weight:700;color:#fff;">Maritime</div>
+        <div style="color:rgba(255,255,255,0.55);margin-top:0.2em;font-size:0.9em;">Fuels · Hubs · Singapore</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:0.8em 0.5em;">
+        <div style="font-size:1.8em;margin-bottom:0.2em;">🥩</div>
+        <div style="font-weight:700;color:#fff;">Food</div>
+        <div style="color:rgba(255,255,255,0.55);margin-top:0.2em;font-size:0.9em;">Methane · Culture · Health</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.07);border:1px dashed rgba(255,255,255,0.25);
+                  border-radius:10px;padding:0.8em 0.5em;">
+        <div style="font-size:1.8em;margin-bottom:0.2em;">＋</div>
+        <div style="font-weight:700;color:var(--nus-gold);">Others</div>
+        <div style="color:rgba(255,255,255,0.55);margin-top:0.2em;font-size:0.9em;line-height:1.5;">
+          🏭 Industry<br>🏢 Buildings<br>🌾 Agriculture<br>🌲 Land use
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION: SUMMARY & CAREER
+     ══════════════════════════════════════════ -->
+
+<!-- SUMMARY-1: New system framework -->
+<section data-background-color="#FFFFFF">
+  <h2>We Need a New System</h2>
+  <div class="accent-bar"></div>
+  <p style="font-size:0.72em;color:var(--text);margin-bottom:0.7em;">
+    My research group aims to design decarbonization pathways and understand their implications.
+  </p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6em;font-size:0.7em;">
+    <div class="card card-blue fragment">
+      <div style="font-weight:700;color:var(--nus-blue);margin-bottom:0.2em;">⏱ Timing</div>
+      When must emissions fall? What is feasible by 2030, 2050, 2070?
+    </div>
+    <div class="card card-orange fragment">
+      <div style="font-weight:700;color:var(--nus-orange);margin-bottom:0.2em;">💵 Cost</div>
+      Who pays? What technologies are affordable now vs. in 10 years?
+    </div>
+    <div class="card card-blue fragment">
+      <div style="font-weight:700;color:var(--nus-blue);margin-bottom:0.2em;">🔒 Energy security</div>
+      Can we keep the lights on during the transition?
+    </div>
+    <div class="card card-green fragment">
+      <div style="font-weight:700;color:var(--green);margin-bottom:0.2em;">🌿 Land, water &amp; air</div>
+      Solar needs land. Wind affects ecosystems. Every solution has side-effects.
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY-2: Sunrise industry (NUS blue bg) -->
+<section data-background-color="#003D7C">
+  <div style="text-align:center;padding:0.3em 0;">
+    <p style="color:var(--nus-gold);font-size:0.65em;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.6em;">The opportunity</p>
+    <div style="font-size:2em;font-weight:900;color:#FFFFFF;line-height:1.2;margin-bottom:0.5em;">
+      Decarbonization is one of the<br><span style="color:var(--nus-gold);">fastest-growing industries</span><br>of the 21st century
+    </div>
+    <div style="width:80px;height:4px;background:var(--nus-gold);margin:0 auto 0.8em;border-radius:2px;"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1em;font-size:0.65em;max-width:800px;margin:0 auto;">
+      <div class="fragment" style="background:rgba(255,255,255,0.1);border-radius:10px;padding:0.9em;">
+        <div style="font-size:2em;font-weight:900;color:var(--nus-gold);">24M</div>
+        <div style="color:#fff;margin-top:0.2em;">new green jobs by 2030</div>
+        <div style="color:rgba(255,255,255,0.55);font-size:0.85em;">— ILO</div>
+      </div>
+      <div class="fragment" style="background:rgba(255,255,255,0.1);border-radius:10px;padding:0.9em;">
+        <div style="font-size:2em;font-weight:900;color:var(--nus-gold);">$1.8T</div>
+        <div style="color:#fff;margin-top:0.2em;">clean energy investment in 2023</div>
+        <div style="color:rgba(255,255,255,0.55);font-size:0.85em;">— IEA</div>
+      </div>
+      <div class="fragment" style="background:rgba(255,255,255,0.1);border-radius:10px;padding:0.9em;">
+        <div style="font-size:2em;font-weight:900;color:var(--nus-gold);">#1</div>
+        <div style="color:#fff;margin-top:0.2em;">most active VC sector globally</div>
+        <div style="color:rgba(255,255,255,0.55);font-size:0.85em;">Climate tech</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY-3: Career paths -->
+<section data-background-color="#FFFFFF">
+  <h2>What Can You Do With This Degree?</h2>
+  <div class="accent-bar"></div>
+  <div class="career-grid" style="margin-top:0.8em;">
+    <div class="career-card fragment">
+      <div class="role" style="color:var(--green);">⚡ Energy Systems Engineer</div>
+      Design power grids, storage systems, and microgrids for a renewables-dominant world
+    </div>
+    <div class="career-card fragment">
+      <div class="role" style="color:var(--nus-blue);">📊 Energy Market Analyst</div>
+      Carbon markets, electricity pricing, policy modelling — data-driven decision making
+    </div>
+    <div class="career-card fragment">
+      <div class="role" style="color:var(--nus-orange);">🌿 ESG Consultant</div>
+      Help companies measure and reduce emissions — now mandatory for large firms globally
+    </div>
+    <div class="career-card fragment">
+      <div class="role" style="color:var(--purple);">🏛 Policy Advisor</div>
+      Singapore, ASEAN, UN — translating engineering reality into workable regulation
+    </div>
+    <div class="career-card fragment">
+      <div class="role" style="color:var(--teal);">🚀 Climate Tech Founder</div>
+      Build the startups solving problems that the world's largest companies cannot
+    </div>
+    <div class="career-card fragment">
+      <div class="role" style="color:var(--nus-navy);">🔬 Researcher</div>
+      Open questions remain in storage, hydrogen, carbon removal — NUS is at the frontier
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     21 — CLOSING QUESTION (NUS blue bg)
+     ══════════════════════════════════════════ -->
+<section data-background-color="#003D7C">
+  <div style="text-align:center;padding:0.8em 0;">
+    <p class="section-label" style="color:var(--nus-gold);margin-bottom:0.8em;">One question</p>
+    <h2 style="font-size:1.35em;line-height:1.5;color:#FFFFFF;">
+      In 2070, when the world looks back<br>
+      at how this problem was — or wasn't — solved,
+    </h2>
+    <div class="fragment" style="margin-top:0.8em;">
+      <h2 style="font-size:1.6em;color:var(--nus-gold);">where do you want to have been?</h2>
+    </div>
+    <div class="fragment" style="margin-top:1.4em;color:rgba(255,255,255,0.65);font-size:0.73em;max-width:580px;margin-left:auto;margin-right:auto;">
+      The decision you make in the next few weeks is one small step in answering that question.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     22 — Q&A
+     ══════════════════════════════════════════ -->
+<section data-background-color="#FFFFFF">
+  <div style="text-align:center;">
+    <h2 style="font-size:2.2em;color:var(--nus-blue);margin-bottom:0.4em;">Questions?</h2>
+    <div style="width:60px;height:4px;background:var(--nus-orange);margin:0 auto 1.4em;"></div>
+    <p style="color:var(--muted);font-size:0.78em;">Department of Civil and Environmental Engineering</p>
+    <p style="color:var(--muted);font-size:0.78em;">College of Design and Engineering · National University of Singapore</p>
+    <p style="color:var(--nus-blue);font-size:0.78em;margin-top:0.8em;font-weight:600;">nus.edu.sg/cde</p>
+  </div>
+</section>
+
+</div><!-- /slides -->
+</div><!-- /reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: 'c/t',
+  transition: 'fade',
+  transitionSpeed: 'fast',
+  controls: true,
+  progress: true,
+  center: true,
+  width: 1280,
+  height: 720,
+  pdfSeparateFragments: false,
+  pdfMaxPagesPerSlide: 1,
+});
+
+/* ── shared config ──────────────────────────────────────────────────── */
+const C = {
+  blue:   '#003D7C', orange: '#EF7C00', gold: '#F5A500',
+  green:  '#059669', red:    '#DC2626', muted: '#64748B',
+  text:   '#0F172A', bg:     '#FFFFFF', bg2:   '#F1F5F9',
+  border: '#CBD5E1',
+};
+const gridLine  = 'rgba(0,0,0,0.06)';
+const tickColor = C.muted;
+const baseScales = {
+  x: { ticks:{color:tickColor}, grid:{color:gridLine} },
+  y: { ticks:{color:tickColor}, grid:{color:gridLine} },
+};
+const baseTip = {
+  backgroundColor: C.bg, titleColor: C.text, bodyColor: C.muted,
+  borderColor: C.border, borderWidth: 1,
+};
+const done = {};
+
+/* ── SOURCES (horizontal bar) — idx 3 ──────────────────────────────── */
+function initSources() {
+  if (done.sources) return; done.sources = true;
+  const ctx = document.getElementById('sourcesChart'); if (!ctx) return;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: [
+        'Energy (electricity & heat)',
+        'Industry',
+        'Transport',
+        'Agriculture & Land Use',
+        'Buildings',
+        'Waste & Other',
+      ],
+      datasets: [{
+        label: 'Share of global GHG emissions (%)',
+        data: [34, 24, 16, 12, 6, 8],
+        backgroundColor: ['#DC2626','#EF7C00','#F59E0B','#22C55E','#003D7C','#94A3B8'],
+        borderRadius: 5,
+        borderSkipped: false,
+      }],
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      animation: { duration: 1400 },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          ...baseTip,
+          callbacks: { label: c => '  ' + c.raw + ' % of global GHG emissions' },
+        },
+      },
+      scales: {
+        x: {
+          min: 0, max: 40,
+          ticks: { color: C.muted, callback: v => v + ' %' },
+          grid: { color: gridLine },
+        },
+        y: {
+          ticks: {
+            color: C.text,
+            font: { size: 14, family: 'Inter', weight: '600' },
+          },
+          grid: { display: false },
+        },
+      },
+    },
+    plugins: [{
+      id: 'barLabels',
+      afterDraw(chart) {
+        const {ctx: c2, scales: {x, y}} = chart;
+        const vals = [34, 24, 16, 12, 6, 8];
+        c2.save();
+        c2.font = 'bold 14px Inter, sans-serif';
+        c2.fillStyle = C.text;
+        c2.textAlign = 'left';
+        c2.textBaseline = 'middle';
+        vals.forEach((v, i) => {
+          const xPos = x.getPixelForValue(v) + 6;
+          const yPos = y.getPixelForValue(i);
+          c2.fillText(v + ' %', xPos, yPos);
+        });
+        c2.restore();
+      }
+    }],
+  });
+}
+
+/* ── CO₂ HOCKEY STICK — 800k years, linear x-axis — idx 2 ───────────── */
+function initCO2() {
+  if (done.co2) return; done.co2 = true;
+  const ctx = document.getElementById('co2Chart'); if (!ctx) return;
+
+  // ── EPICA Dome C ice-core data (NOAA/EPA source)
+  // x = CE year (negative = BCE);  y = CO₂ ppm
+  // Converted from "years before 1950": CE = 1950 - BP
+  const iceCore = [
+    {x:-801769, y:207}, {x:-778050, y:198}, {x:-758050, y:215},
+    {x:-738050, y:199}, {x:-718050, y:213}, {x:-698050, y:194},
+    {x:-678050, y:237}, {x:-658050, y:196}, {x:-638050, y:196},
+    {x:-618050, y:233}, {x:-598050, y:239}, {x:-578050, y:222},
+    {x:-558050, y:217}, {x:-538050, y:210}, {x:-518050, y:226},
+    {x:-498050, y:247}, {x:-478050, y:258}, {x:-458050, y:272},
+    {x:-438050, y:283}, {x:-428050, y:298}, {x:-418050, y:264},
+    {x:-398050, y:248}, {x:-378050, y:230}, {x:-358050, y:210},
+    {x:-338050, y:206}, {x:-318050, y:218}, {x:-298050, y:239},
+    {x:-278050, y:236}, {x:-258050, y:225}, {x:-238050, y:216},
+    {x:-218050, y:217}, {x:-198050, y:248}, {x:-178050, y:257},
+    {x:-158050, y:263}, {x:-138050, y:245}, {x:-128050, y:288},
+    {x:-118050, y:273}, {x:-108050, y:258}, {x:-98050,  y:244},
+    {x:-78050,  y:218}, {x:-58050,  y:205}, {x:-38050,  y:194},
+    {x:-28050,  y:193}, {x:-18050,  y:187}, {x:-13050,  y:194},
+    {x:-10050,  y:243}, {x:-8050,   y:260}, {x:-6050,   y:264},
+    {x:-4050,   y:268}, {x:-2050,   y:275}, {x:-50,     y:279},
+    {x:950,     y:280}, {x:1450,    y:280}, {x:1750,    y:280}
+  ];
+
+  // ── Keeling Curve + NOAA modern measurements
+  const modern = [
+    {x:1750, y:280}, {x:1800, y:283}, {x:1850, y:287},
+    {x:1900, y:295}, {x:1920, y:302}, {x:1940, y:308},
+    {x:1950, y:310}, {x:1958, y:315}, {x:1965, y:320},
+    {x:1970, y:326}, {x:1975, y:331}, {x:1980, y:339},
+    {x:1985, y:346}, {x:1990, y:354}, {x:1995, y:360},
+    {x:2000, y:369}, {x:2005, y:379}, {x:2010, y:390},
+    {x:2015, y:400}, {x:2020, y:413}, {x:2022, y:418},
+    {x:2024, y:424}, {x:2025, y:426}
+  ];
+
+  // Minimal canvas plugin: just a dot at the 2025 endpoint
+  const co2Annotations = {
+    id: 'co2Annotations',
+    afterDraw(chart) {
+      const {ctx, scales: {x, y}} = chart;
+      ctx.save();
+      const x24 = x.getPixelForValue(2025);
+      const y24 = y.getPixelForValue(426);
+      ctx.fillStyle = C.red;
+      ctx.beginPath();
+      ctx.arc(x24, y24, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+  };
+
+  new Chart(ctx, {
+    type: 'line',
+    plugins: [co2Annotations],
+    data: {
+      datasets: [
+        {
+          label: 'Historical',
+          data: iceCore,
+          borderColor: C.blue,
+          backgroundColor: 'rgba(0,61,124,0.08)',
+          borderWidth: 1.8, fill: true, tension: 0.3,
+          pointRadius: 0,
+        },
+        {
+          label: 'Post Industrial Revolution',
+          data: modern,
+          borderColor: C.red,
+          backgroundColor: 'rgba(220,38,38,0.15)',
+          borderWidth: 3, fill: true, tension: 0.2,
+          pointRadius: 0,
+        },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      animation: { duration: 2400 },
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color:C.text, font:{size:20,family:'Inter'}, boxWidth:28, padding:16 },
+        },
+        tooltip: {
+          ...baseTip,
+          callbacks: {
+            title: items => {
+              const yr = items[0].parsed.x;
+              return yr < 0
+                ? Math.abs(Math.round(yr)).toLocaleString() + ' BCE'
+                : 'CE ' + Math.round(yr);
+            },
+            label: c => '  CO₂: ' + c.parsed.y + ' ppm',
+          },
+        },
+      },
+      scales: {
+        x: {
+          type: 'linear',
+          min: -803719,
+          max: 2025,
+          ticks: {
+            color: C.muted,
+            maxTicksLimit: 7,
+            maxRotation: 0,
+            callback: v => v <= 0
+              ? (Math.abs(v) >= 1000 ? Math.round(Math.abs(v) / 1000) + 'k BCE' : Math.abs(v) + ' BCE')
+              : (v >= 1800 ? v : ''),
+          },
+          grid: { color: gridLine },
+        },
+        y: {
+          min: 150, max: 440,
+          ticks: { color: tickColor, callback: v => v + ' ppm' },
+          grid: { color: gridLine },
+        },
+      },
+    },
+  });
+}
+
+/* ── PATHWAY (Global Carbon Project style) — idx 4 ─────────────────── */
+function initPathway() {
+  if (done.pathway) return; done.pathway = true;
+  const ctx = document.getElementById('pathwayChart'); if (!ctx) return;
+
+  // x-axis labels (years)
+  const labels = [
+    '1990','1995','2000','2005','2010','2015','2019',
+    '2020','2021','2022','2023','2025',
+    '2030','2035','2040','2045','2050','2055','2060','2065'
+  ];
+  // index 11 = 2025 ("we are here" split point)
+
+  // Historical total CO₂ (fossil + LUC, Gt/yr — Global Carbon Project)
+  const hist = [24,25,26.5,30,33.5,36,37.5, 34,36.5,37.2,37.5,37.8,
+                null,null,null,null,null,null,null,null];
+
+  // Business-as-usual (current implemented policies)
+  const bau  = [null,null,null,null,null,null,null, null,null,null,null,37.8,
+                40,42,43.5,44.5,45.5,46,47,47.5];
+
+  // 1.5 °C pathway — net zero ~2050
+  const p15  = [null,null,null,null,null,null,null, null,null,null,null,37.8,
+                25,14,6,1.5,0,null,null,null];
+
+  // 2.0 °C pathway — net zero ~2065
+  const p20  = [null,null,null,null,null,null,null, null,null,null,null,37.8,
+                32,26,19,13,7,3,0.5,0];
+
+  // Annotation plugin — labels directly on lines, no legend needed
+  const pwAnnotations = {
+    id: 'pwAnnotations',
+    afterDraw(chart) {
+      const {ctx: c2, scales:{x,y}, chartArea:{top,bottom,right}} = chart;
+      c2.save();
+
+      // ── "We are here" vertical at 2025
+      // Use the x-axis label '2025' directly for accurate position
+      const x25 = x.getPixelForValue('2025');
+      c2.strokeStyle = '#94A3B8';
+      c2.lineWidth = 1.5;
+      c2.setLineDash([5,4]);
+      c2.beginPath(); c2.moveTo(x25,top); c2.lineTo(x25,bottom); c2.stroke();
+      c2.setLineDash([]);
+      c2.fillStyle = '#475569';
+      c2.font = 'bold 20px Inter,sans-serif';
+      c2.textAlign = 'center';
+      c2.fillText('▼ 2025', x25, top + 22);
+
+      const F = 'bold 22px Inter,sans-serif';
+      const LH = 28;
+
+      // ── BAU — right edge, moved up into the red area
+      c2.fillStyle = C.red;
+      c2.font = F; c2.textAlign = 'right';
+      c2.fillText('Business as Usual', right - 6, top + 26);
+      c2.fillText('→ ~3.2°C Warming',  right - 6, top + 26 + LH);
+
+      // ── 2.0°C — index 14 (2040), above the orange line
+      const x40 = x.getPixelForValue(14);
+      const y20 = y.getPixelForValue(19);
+      c2.fillStyle = C.orange;
+      c2.font = F; c2.textAlign = 'left';
+      c2.fillText('Net Zero ~2065', x40 + 6, y20 - LH - 4);
+      c2.fillText('→ 2.0°C',        x40 + 6, y20 - 4);
+
+      // ── 1.5°C — moved left to index 12 (2030), lower position
+      const x30 = x.getPixelForValue(12);
+      const y15 = y.getPixelForValue(8);
+      c2.fillStyle = C.green;
+      c2.font = F; c2.textAlign = 'left';
+      c2.fillText('Net Zero 2050', x30 + 6, y15 + 4);
+      c2.fillText('→ 1.5°C',       x30 + 6, y15 + 4 + LH);
+
+      c2.restore();
+    }
+  };
+
+  new Chart(ctx, {
+    type: 'line',
+    plugins: [pwAnnotations],
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Historical emissions',
+          data: hist,
+          borderColor: C.blue,
+          backgroundColor: 'rgba(0,61,124,0.15)',
+          borderWidth: 2.5, fill: true, tension: 0.35,
+          pointRadius: 0, spanGaps: false,
+        },
+        {
+          label: 'Current policy (BAU → ~3.2 °C)',
+          data: bau,
+          borderColor: C.red,
+          backgroundColor: 'rgba(220,38,38,0.08)',
+          borderWidth: 2.5, fill: true, tension: 0.3,
+          borderDash: [8,4], pointRadius: 0, spanGaps: false,
+        },
+        {
+          label: 'Limit to 2.0 °C',
+          data: p20,
+          borderColor: C.orange,
+          backgroundColor: 'rgba(239,124,0,0.07)',
+          borderWidth: 2.5, fill: true, tension: 0.35,
+          borderDash: [6,3], pointRadius: 0, spanGaps: false,
+        },
+        {
+          label: 'Limit to 1.5 °C',
+          data: p15,
+          borderColor: C.green,
+          backgroundColor: 'rgba(5,150,105,0.1)',
+          borderWidth: 2.5, fill: true, tension: 0.35,
+          borderDash: [4,2], pointRadius: 0, spanGaps: false,
+        },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      animation: { duration: 1800 },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          ...baseTip,
+          callbacks: { label: c => c.raw != null ? '  ' + c.raw + ' Gt CO₂/yr' : null },
+        },
+      },
+      scales: {
+        x: { ticks:{color:C.muted,maxRotation:0,autoSkip:true,maxTicksLimit:8}, grid:{color:gridLine} },
+        y: {
+          min: 0, max: 52,
+          title: { display:true, text:'Annual CO₂ emissions (Gt / yr)', color:C.muted, font:{size:17, family:'Inter'} },
+          ticks: { color:tickColor, callback: v => v + ' Gt' },
+          grid: { color: gridLine },
+        },
+      },
+    },
+  });
+}
+
+/* ── SOLAR (40-year module price) — idx 9 ───────────────────────────── */
+function initSolar() {
+  if (done.solar) return; done.solar = true;
+  const ctx = document.getElementById('solarChart'); if (!ctx) return;
+  // Solar PV module price $/W — Our World in Data / IRENA learning curve
+  const labels = ['1976','1980','1983','1985','1988','1990','1993','1995',
+                  '1998','2000','2003','2005','2007','2009','2010','2012',
+                  '2014','2016','2018','2020','2022','2023'];
+  const data   = [106, 22, 15, 12, 9, 8, 7, 6,
+                  5.5, 5, 4, 3.8, 3.5, 1.8, 1.5, 0.75,
+                  0.6, 0.38, 0.25, 0.20, 0.17, 0.16];
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Solar PV module price (USD/W)',
+        data,
+        borderColor: C.orange,
+        backgroundColor: 'rgba(239,124,0,0.08)',
+        borderWidth: 3, fill: true, tension: 0.35,
+        pointBackgroundColor: C.orange, pointRadius: 3,
+      }],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      animation: { duration: 1800 },
+      plugins: {
+        legend: { labels:{color:C.muted, font:{size:12,family:'Inter'}} },
+        tooltip: { ...baseTip, callbacks:{label:c=>'$'+c.raw+'/W'} },
+      },
+      scales: {
+        x: { ticks:{color:C.muted, maxRotation:45, autoSkip:true, maxTicksLimit:10}, grid:{color:gridLine} },
+        y: {
+          type: 'logarithmic',
+          grid: { color: gridLine },
+          ticks: {
+            color: tickColor,
+            callback: v => [100,10,1,0.1].includes(v) ? '$'+v+'/W' : '',
+          },
+        },
+      },
+    },
+  });
+}
+
+/* ── FOOD (horizontal bar) — idx 15 ─────────────────────────────────── */
+function initFood() {
+  if (done.food) return; done.food = true;
+  const ctx = document.getElementById('foodChart'); if (!ctx) return;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Beef','Lamb','Cheese','Pork','Chicken','Eggs','Rice','Tofu'],
+      datasets: [{
+        label: 'kg CO₂ per kg of food',
+        data: [60,24,21,7,6,4.5,4,2],
+        backgroundColor: [
+          C.red,'#f97316',C.orange,'#84cc16',
+          '#22c55e',C.green,'#06b6d4',C.blue,
+        ],
+        borderRadius: 6,
+      }],
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      animation: { duration: 1500 },
+      plugins: {
+        legend: { display:false },
+        tooltip: { ...baseTip, callbacks:{label:c=>'  '+c.raw+' kg CO₂ per kg'} },
+      },
+      scales: {
+        x: {
+          ...baseScales.x,
+          title: { display:true, text:'kg CO₂eq per kg of food produced', color:C.muted, font:{size:11,family:'Inter'} },
+          ticks: { color:tickColor, callback: v => v + ' kg' },
+        },
+        y: { ticks:{color:C.text,font:{size:13,family:'Inter',weight:'600'}}, grid:{display:false} },
+      },
+    },
+  });
+}
+
+/* ── trigger on slide change ─────────────────────────────────────────── */
+/* ── POWER MIX (horizontal bar) — idx 6 ────────────────────────────── */
+function initPowerMix() {
+  if (done.powerMix) return; done.powerMix = true;
+  const ctx = document.getElementById('powerMixChart'); if (!ctx) return;
+  const barPct = {
+    id: 'barPct',
+    afterDraw(chart) {
+      const {ctx: c2, scales:{x, y}} = chart;
+      const labels = ['Coal','Natural gas','Hydro','Nuclear','Wind','Solar','Other'];
+      const vals   = [35, 23, 15, 10, 8, 5, 4];
+      c2.save();
+      c2.font = 'bold 13px Inter, sans-serif';
+      c2.fillStyle = C.text;
+      c2.textAlign = 'left';
+      labels.forEach((lbl, i) => {
+        const px = x.getPixelForValue(vals[i]) + 5;
+        const py = y.getPixelForValue(lbl);
+        c2.fillText(vals[i] + ' %', px, py);
+      });
+      c2.restore();
+    }
+  };
+  new Chart(ctx, {
+    type: 'bar',
+    plugins: [barPct],
+    data: {
+      labels: ['Coal', 'Natural gas', 'Hydro', 'Nuclear', 'Wind', 'Solar', 'Other'],
+      datasets: [{
+        label: 'Share of global electricity (%)',
+        data: [35, 23, 15, 10, 8, 5, 4],
+        backgroundColor: ['#4B5563','#9CA3AF','#3b82f6','#8b5cf6','#0EA5E9','#FBBF24','#D1D5DB'],
+        borderRadius: 5,
+      }],
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      animation: { duration: 1400 },
+      layout: { padding: { left: 8 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: { ...baseTip, callbacks: { label: c => '  ' + c.raw + ' %' } },
+      },
+      scales: {
+        x: { ...baseScales.x, min: 0, max: 40, ticks: { color:C.muted, callback: v => v + ' %' } },
+        y: { ticks: { color:C.text, font:{size:13, family:'Inter', weight:'600'} }, grid:{display:false},
+             afterFit(axis) { axis.width = 115; } },
+      },
+    },
+  });
+}
+
+/* ── EV TRENDS (bar chart) — idx 11 ────────────────────────────────── */
+function initEVTrends() {
+  if (done.evTrends) return; done.evTrends = true;
+  const ctx = document.getElementById('evChart'); if (!ctx) return;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['2020','2021','2022','2023','2024','2025','2030 (proj.)'],
+      datasets: [{
+        label: 'EV share of new car sales (%)',
+        data: [4, 8, 14, 18, 21, 25, 40],
+        backgroundColor: '#003D7C',
+        borderRadius: 6,
+      }],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      animation: { duration: 1400 },
+      plugins: {
+        legend: { display: false },
+        tooltip: { ...baseTip, callbacks: { label: c => '  ' + c.raw + ' %' } },
+      },
+      scales: {
+        x: { ticks: { color:C.muted, font:{size:12} }, grid: { display:false } },
+        y: { ...baseScales.y, max: 50, ticks: { color:C.muted, callback: v => v+'%' } },
+      },
+    },
+  });
+}
+
+/* ── RENEW GROWTH (wind & solar capacity) — idx 8 ──────────────────── */
+function initRenewChart() {
+  if (done.renew) return; done.renew = true;
+  const ctx = document.getElementById('renewChart'); if (!ctx) return;
+  const labels = ['2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022','2023'];
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Solar PV (GW)',
+          data: [40,71,102,139,181,230,295,399,509,627,714,942,1185,1605],
+          borderColor: '#FBBF24',
+          backgroundColor: 'rgba(251,191,36,0.12)',
+          borderWidth: 3, fill: true, tension: 0.3, pointRadius: 3,
+          pointBackgroundColor: '#FBBF24',
+        },
+        {
+          label: 'Wind (GW)',
+          data: [198,238,283,318,370,433,487,539,591,623,743,845,900,1017],
+          borderColor: '#0EA5E9',
+          backgroundColor: 'rgba(14,165,233,0.08)',
+          borderWidth: 3, fill: true, tension: 0.3, pointRadius: 3,
+          pointBackgroundColor: '#0EA5E9',
+        },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      animation: { duration: 1800 },
+      plugins: {
+        legend: { position:'top', labels:{color:C.text, font:{size:13,family:'Inter',weight:'600'}, boxWidth:20, padding:14} },
+        tooltip: { ...baseTip, callbacks:{ label: c => '  '+c.dataset.label+': '+c.raw.toLocaleString()+' GW' } },
+      },
+      scales: {
+        x: { ticks:{color:C.muted, maxRotation:0}, grid:{color:gridLine} },
+        y: {
+          ticks: { color:C.muted, callback: v => v>=1000 ? (v/1000).toFixed(1)+'k GW' : v+' GW' },
+          grid: { color:gridLine },
+          title: { display:true, text:'Installed capacity (GW)', color:C.muted, font:{size:11} },
+        },
+      },
+    },
+  });
+}
+
+/* ── SHIP MAP (Leaflet) ──────────────────────────────────────────────── */
+function initShipMap() {
+  if (done.shipMap) return; done.shipMap = true;
+  const el = document.getElementById('shipMap'); if (!el) return;
+
+  // Load Leaflet JS dynamically
+  const script = document.createElement('script');
+  script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  script.onload = () => {
+    const map = L.map('shipMap', {
+      center: [20, 15], zoom: 2,
+      zoomControl: true, attributionControl: false,
+    });
+
+    // Dark base tiles (CartoDB)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd', maxZoom: 6,
+    }).addTo(map);
+
+    // Major shipping lanes (approximate great-circle waypoints)
+    const lanes = [
+      // Asia → Europe via Suez
+      [[1.3,104],[5,80],[12,45],[22,38],[31,32],[36,14],[36,-5],[51,1],[52,4]],
+      // Trans-Pacific (W USA → Japan)
+      [[34,-118],[35,-150],[35,175],[34,139],[31,121]],
+      // Trans-Atlantic (NY → Rotterdam)
+      [[40,-74],[45,-40],[50,-20],[52,4]],
+      // Cape Route (Europe → Asia via S Africa)
+      [[52,4],[0,-10],[-34,18],[-20,57],[12,45],[1,104]],
+      // Intra-Asia (China → SE Asia)
+      [[31,121],[22,114],[1.3,104],[3,105],[13,100]],
+      // Australia → Asia
+      [[-33,151],[-20,115],[1,104],[22,114]],
+      // Middle East → Asia (oil tankers)
+      [[27,56],[12,45],[5,60],[1,80],[1.3,104]],
+      // US Gulf → Europe
+      [[29,-90],[25,-80],[30,-60],[45,-30],[52,4]],
+    ];
+
+    const laneStyle = { color:'#F5A500', weight:1.5, opacity:0.55 };
+    lanes.forEach(pts => L.polyline(pts, laneStyle).addTo(map));
+
+    // Major port dots
+    const ports = [
+      [1.3,103.8,'Singapore'],[31.2,121.5,'Shanghai'],[22.3,114.2,'Hong Kong'],
+      [34.7,135.2,'Osaka'],[35.7,139.8,'Tokyo'],[22.1,91.8,'Chittagong'],
+      [51.9,4.5,'Rotterdam'],[53.5,-0.1,'Humber'],[40.7,-74,'New York'],
+      [33.7,-118.2,'Los Angeles'],[29.7,-95,'Houston'],[-33.9,18.4,'Cape Town'],
+      [37.9,23.7,'Piraeus'],[31,32.3,'Suez'],[27.1,56.3,'Hormuz'],
+    ];
+    ports.forEach(([lat,lng,name]) => {
+      L.circleMarker([lat,lng], {
+        radius:5, color:'#fff', fillColor:'#F5A500',
+        fillOpacity:0.9, weight:1.5,
+      }).addTo(map).bindTooltip(name, {permanent:false, direction:'top'});
+    });
+  };
+  document.head.appendChild(script);
+}
+
+// ── idx 2=co2, 3=pathway, 7=powerMix, 8=renew, 9=solar, 12=evTrends, 17=food
+const chartMap = { 2:initCO2, 3:initPathway, 7:initPowerMix, 8:initRenewChart, 9:initSolar, 12:initEVTrends, 18:initFood };
+Reveal.on('slidechanged', e => { if (chartMap[e.indexh]) chartMap[e.indexh](); });
+
+// In print-pdf mode, slidechanged never fires — initialise all charts immediately
+if (window.location.search.includes('print-pdf')) {
+  setTimeout(() => {
+    initCO2(); initPathway(); initPowerMix();
+    initRenewChart(); initSolar(); initEVTrends(); initFood();
+  }, 3000);
+}
+Reveal.on('fragmentshown', () => {
+  const el = document.getElementById('foodChart');
+  if (el && el.offsetParent !== null) setTimeout(initFood, 80);
+});
+</script>
+</body>
+</html>
