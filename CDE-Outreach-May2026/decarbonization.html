@@ -711,6 +711,168 @@
 </section>
 
 <!-- ══════════════════════════════════════════
+     SECTION: AI & ENERGY
+     ══════════════════════════════════════════ -->
+
+<!-- AI-1: Data centre electricity boom -->
+<section data-background-color="#FFFFFF">
+  <h2>A New Electricity Consumer: <span class="nus-orange">AI &amp; Data Centres</span></h2>
+  <div class="accent-bar"></div>
+
+  <div style="display:grid;grid-template-columns:55% 45%;gap:1.2em;margin-top:0.4em;align-items:start;">
+
+    <!-- Left: visual bar chart -->
+    <div>
+      <div style="font-size:0.58em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.7em;">Global data centre electricity consumption</div>
+
+      <!-- 2024 bar -->
+      <div style="margin-bottom:0.9em;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:0.65em;margin-bottom:0.25em;">
+          <span style="font-weight:600;">2024</span>
+          <strong style="color:var(--nus-blue);">415 TWh &nbsp;<span style="color:var(--muted);font-weight:400;">(1.5 % of global electricity)</span></strong>
+        </div>
+        <div style="height:28px;background:#E2E8F0;border-radius:6px;">
+          <div style="height:100%;background:var(--nus-blue);border-radius:6px;width:44%;"></div>
+        </div>
+      </div>
+
+      <!-- 2030 bar -->
+      <div style="margin-bottom:0.9em;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:0.65em;margin-bottom:0.25em;">
+          <span style="font-weight:600;">2030 <span style="color:var(--muted);font-weight:400;">(projected)</span></span>
+          <strong style="color:var(--nus-orange);">~945 TWh &nbsp;<span style="color:var(--muted);font-weight:400;">(~3 % of global electricity)</span></strong>
+        </div>
+        <div style="height:28px;background:#E2E8F0;border-radius:6px;">
+          <div style="height:100%;background:var(--nus-orange);border-radius:6px;width:100%;"></div>
+        </div>
+      </div>
+
+      <div style="font-size:0.52em;color:var(--muted);margin-top:0.3em;text-align:right;">
+        Source: IEA, <em>Energy and AI</em> (2025)
+      </div>
+    </div>
+
+    <!-- Right: key facts -->
+    <div style="font-size:0.67em;display:flex;flex-direction:column;gap:0.65em;">
+
+      <div class="card card-orange" style="padding:0.75em 1em;">
+        <div style="font-weight:800;color:var(--nus-orange);margin-bottom:0.2em;">📈 Growing 4× faster</div>
+        <div style="color:var(--text);">Data centre electricity has grown <strong>12 % per year</strong> since 2017 — four times faster than total global electricity demand.</div>
+      </div>
+
+      <div class="card card-blue" style="padding:0.75em 1em;">
+        <div style="font-weight:800;color:var(--nus-blue);margin-bottom:0.2em;">🤖 AI is the accelerant</div>
+        <div style="color:var(--text);">AI-driven servers are growing at <strong>30 % per year</strong> — three times faster than conventional servers (9 %/yr).</div>
+      </div>
+
+      <div class="fragment card card-red" style="padding:0.75em 1em;">
+        <div style="font-weight:800;color:var(--red);margin-bottom:0.2em;">🌏 Scale check</div>
+        <div style="color:var(--text);">945 TWh exceeds <strong>Japan's entire annual electricity consumption</strong> — all added in just six years.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AI-2: Training energy cost -->
+<section data-background-color="#FFFFFF">
+  <h2>Training One AI Model: <span class="nus-orange">How Much Energy?</span></h2>
+  <div class="accent-bar"></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2em;margin-top:0.5em;align-items:start;font-size:0.72em;">
+
+    <div>
+      <div style="font-size:0.82em;color:var(--muted);margin-bottom:0.9em;">Training GPT-3 (175 billion parameters) consumed:</div>
+
+      <!-- Big number -->
+      <div style="text-align:center;background:rgba(0,61,124,0.05);border:1px solid var(--border);border-radius:12px;padding:1em 0.5em;margin-bottom:0.8em;">
+        <span style="font-size:3.2em;font-weight:900;color:var(--nus-blue);line-height:1;display:block;">1,287 MWh</span>
+        <span style="font-size:0.72em;color:var(--muted);margin-top:0.2em;display:block;">of electricity — one training run</span>
+      </div>
+
+      <!-- Equivalent -->
+      <div class="hbox" style="font-size:0.85em;">
+        ≈ Annual electricity use of <strong>120 U.S. households</strong>
+      </div>
+      <div style="font-size:0.52em;color:var(--muted);margin-top:0.5em;text-align:right;">
+        Source: Patterson et al. (2021), <em>Carbon Emissions and Large Neural Network Training</em>, arXiv:2104.10350
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:0.7em;">
+
+      <div class="card" style="padding:0.75em 1em;">
+        <div style="font-weight:800;color:var(--nus-blue);margin-bottom:0.2em;">📦 This is just the beginning</div>
+        <div>Models since GPT-3 have grown <strong>10–100× larger</strong>, with training runs that consume proportionally more energy.</div>
+      </div>
+
+      <div class="card" style="padding:0.75em 1em;">
+        <div style="font-weight:800;color:var(--nus-blue);margin-bottom:0.2em;">🔁 Training vs. Inference</div>
+        <div>Training happens once. But <strong>inference</strong> — answering billions of queries every day — adds up continuously across the entire infrastructure.</div>
+      </div>
+
+      <div class="fragment card card-red" style="padding:0.75em 1em;">
+        <div style="font-weight:800;color:var(--red);margin-bottom:0.2em;">⚡ The question</div>
+        <div>AI growth = data centre growth = electricity growth.<br>Where does that electricity come from?</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AI-3: Double-edged sword -->
+<section data-background-color="#FFFFFF">
+  <h2>AI &amp; Decarbonization: <span class="nus-orange">Problem or Solution?</span></h2>
+  <div class="accent-bar"></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1em;margin-top:0.5em;font-size:0.7em;">
+
+    <!-- Problem side -->
+    <div>
+      <div style="font-weight:800;color:var(--red);font-size:1em;margin-bottom:0.5em;">❌ The Problem</div>
+      <div style="display:flex;flex-direction:column;gap:0.5em;">
+        <div class="card card-red" style="padding:0.65em 0.9em;">
+          <strong>Fast-growing electricity demand</strong><br>
+          <span style="color:var(--muted);">Data centres: +12 %/yr since 2017, accelerating with AI</span>
+        </div>
+        <div class="card card-red" style="padding:0.65em 0.9em;">
+          <strong>Still mostly fossil-fuelled</strong><br>
+          <span style="color:var(--muted);">In 2024, ~40 % of data centre electricity came from fossil fuels — the grid has not yet decarbonized</span>
+        </div>
+        <div class="card card-red" style="padding:0.65em 0.9em;">
+          <strong>Water &amp; land footprint</strong><br>
+          <span style="color:var(--muted);">Cooling large data centres consumes enormous amounts of freshwater</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solution side -->
+    <div>
+      <div style="font-weight:800;color:var(--green);font-size:1em;margin-bottom:0.5em;">✅ The Opportunity</div>
+      <div style="display:flex;flex-direction:column;gap:0.5em;">
+        <div class="card card-green" style="padding:0.65em 0.9em;">
+          <strong>Grid optimisation</strong><br>
+          <span style="color:var(--muted);">AI forecasts wind/solar output and balances supply-demand in real time, enabling higher renewable penetration</span>
+        </div>
+        <div class="card card-green" style="padding:0.65em 0.9em;">
+          <strong>Materials discovery</strong><br>
+          <span style="color:var(--muted);">AI shortens discovery cycles for new batteries and catalysts from years to months <em>(Nature Materials, 2025)</em></span>
+        </div>
+        <div class="card card-green" style="padding:0.65em 0.9em;">
+          <strong>Industrial efficiency</strong><br>
+          <span style="color:var(--muted);">AI-driven building and factory management cuts energy waste across entire sectors</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="fragment hbox-orange" style="margin-top:0.8em;font-size:0.72em;">
+    Whether AI <em>helps</em> or <em>hurts</em> decarbonization depends on the choices engineers, companies, and policymakers make — <strong>starting now.</strong>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
      SECTION: TRANSPORT (EV)
      ══════════════════════════════════════════ -->
 
@@ -989,32 +1151,38 @@
     <div style="width:80px;height:4px;background:var(--nus-gold);margin:0 auto 0.8em;border-radius:2px;"></div>
 
     <!-- Sectors grid -->
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.7em;
-                font-size:0.58em;max-width:980px;margin:0 auto;">
-      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:0.8em 0.5em;">
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:0.6em;
+                font-size:0.56em;max-width:1050px;margin:0 auto;">
+      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:0.8em 0.4em;">
         <div style="font-size:1.8em;margin-bottom:0.2em;">⚡</div>
         <div style="font-weight:700;color:#fff;">Electricity</div>
         <div style="color:rgba(255,255,255,0.55);margin-top:0.2em;font-size:0.9em;">Intermittency · Grid · Cost</div>
       </div>
-      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:0.8em 0.5em;">
+      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:0.8em 0.4em;">
         <div style="font-size:1.8em;margin-bottom:0.2em;">🚗</div>
         <div style="font-weight:700;color:#fff;">Transport</div>
         <div style="color:rgba(255,255,255,0.55);margin-top:0.2em;font-size:0.9em;">EVs · Shipping · Aviation</div>
       </div>
-      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:0.8em 0.5em;">
+      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:0.8em 0.4em;">
         <div style="font-size:1.8em;margin-bottom:0.2em;">🚢</div>
         <div style="font-weight:700;color:#fff;">Maritime</div>
         <div style="color:rgba(255,255,255,0.55);margin-top:0.2em;font-size:0.9em;">Fuels · Hubs · Singapore</div>
       </div>
-      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:0.8em 0.5em;">
+      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:0.8em 0.4em;">
         <div style="font-size:1.8em;margin-bottom:0.2em;">🥩</div>
         <div style="font-weight:700;color:#fff;">Food</div>
         <div style="color:rgba(255,255,255,0.55);margin-top:0.2em;font-size:0.9em;">Methane · Culture · Health</div>
       </div>
+      <div style="background:rgba(255,255,255,0.15);border:1px solid rgba(245,165,0,0.5);
+                  border-radius:10px;padding:0.8em 0.4em;">
+        <div style="font-size:1.8em;margin-bottom:0.2em;">🤖</div>
+        <div style="font-weight:700;color:var(--nus-gold);">AI &amp; Data</div>
+        <div style="color:rgba(255,255,255,0.55);margin-top:0.2em;font-size:0.9em;">Data centres · Training · Inference</div>
+      </div>
       <div style="background:rgba(255,255,255,0.07);border:1px dashed rgba(255,255,255,0.25);
-                  border-radius:10px;padding:0.8em 0.5em;">
+                  border-radius:10px;padding:0.8em 0.4em;">
         <div style="font-size:1.8em;margin-bottom:0.2em;">＋</div>
-        <div style="font-weight:700;color:var(--nus-gold);">Others</div>
+        <div style="font-weight:700;color:rgba(255,255,255,0.7);">Others</div>
         <div style="color:rgba(255,255,255,0.55);margin-top:0.2em;font-size:0.9em;line-height:1.5;">
           🏭 Industry<br>🏢 Buildings<br>🌾 Agriculture<br>🌲 Land use
         </div>
