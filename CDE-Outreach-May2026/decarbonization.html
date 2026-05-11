@@ -714,108 +714,164 @@
      SECTION: AI & ENERGY
      ══════════════════════════════════════════ -->
 
-<!-- AI-1: Data centre electricity boom -->
+<!-- AI-1: AI electricity demand + how it is met -->
 <section data-background-color="#FFFFFF">
-  <h2>A New Electricity Consumer: <span class="nus-orange">AI &amp; Data Centres</span></h2>
+  <h2>AI's Electricity Demand: <span class="nus-orange">A Fast-Accelerating Burden</span></h2>
   <div class="accent-bar"></div>
 
-  <div style="display:grid;grid-template-columns:55% 45%;gap:1.2em;margin-top:0.4em;align-items:start;">
+  <div style="display:grid;grid-template-columns:54% 46%;gap:1.2em;margin-top:0.35em;align-items:start;">
 
-    <!-- Left: visual bar chart -->
+    <!-- Left: timeline bars -->
     <div>
-      <div style="font-size:0.58em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.7em;">Global data centre electricity consumption</div>
+      <div style="font-size:0.57em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.55em;">Global data centre electricity consumption</div>
+
+      <!-- 2018 bar -->
+      <div style="margin-bottom:0.65em;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:0.62em;margin-bottom:0.18em;">
+          <span style="font-weight:600;">2018</span>
+          <span style="color:var(--muted);">~200 TWh &nbsp;·&nbsp; ~1 % of global electricity</span>
+        </div>
+        <div style="height:22px;background:#E2E8F0;border-radius:5px;">
+          <div style="height:100%;background:#94A3B8;border-radius:5px;width:21%;"></div>
+        </div>
+      </div>
 
       <!-- 2024 bar -->
-      <div style="margin-bottom:0.9em;">
-        <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:0.65em;margin-bottom:0.25em;">
+      <div style="margin-bottom:0.65em;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:0.62em;margin-bottom:0.18em;">
           <span style="font-weight:600;">2024</span>
-          <strong style="color:var(--nus-blue);">415 TWh &nbsp;<span style="color:var(--muted);font-weight:400;">(1.5 % of global electricity)</span></strong>
+          <strong style="color:var(--nus-blue);">415 TWh &nbsp;·&nbsp; 1.5 % of global electricity</strong>
         </div>
-        <div style="height:28px;background:#E2E8F0;border-radius:6px;">
-          <div style="height:100%;background:var(--nus-blue);border-radius:6px;width:44%;"></div>
+        <div style="height:22px;background:#E2E8F0;border-radius:5px;">
+          <div style="height:100%;background:var(--nus-blue);border-radius:5px;width:44%;"></div>
         </div>
       </div>
 
       <!-- 2030 bar -->
-      <div style="margin-bottom:0.9em;">
-        <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:0.65em;margin-bottom:0.25em;">
+      <div style="margin-bottom:0.55em;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:0.62em;margin-bottom:0.18em;">
           <span style="font-weight:600;">2030 <span style="color:var(--muted);font-weight:400;">(projected)</span></span>
-          <strong style="color:var(--nus-orange);">~945 TWh &nbsp;<span style="color:var(--muted);font-weight:400;">(~3 % of global electricity)</span></strong>
+          <strong style="color:var(--nus-orange);">~945 TWh &nbsp;·&nbsp; ~3 % of global electricity</strong>
         </div>
-        <div style="height:28px;background:#E2E8F0;border-radius:6px;">
-          <div style="height:100%;background:var(--nus-orange);border-radius:6px;width:100%;"></div>
+        <div style="height:22px;background:#E2E8F0;border-radius:5px;">
+          <div style="height:100%;background:var(--nus-orange);border-radius:5px;width:100%;"></div>
         </div>
       </div>
 
-      <div style="font-size:0.52em;color:var(--muted);margin-top:0.3em;text-align:right;">
-        Source: IEA, <em>Energy and AI</em> (2025)
+      <!-- Sub-stats -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4em;font-size:0.6em;margin-top:0.5em;">
+        <div class="card card-blue" style="padding:0.5em 0.7em;">
+          <strong>12 %/yr</strong> growth since 2017<br>
+          <span style="color:var(--muted);">4× faster than total electricity demand</span>
+        </div>
+        <div class="card card-orange" style="padding:0.5em 0.7em;">
+          AI servers: <strong>30 %/yr</strong><br>
+          <span style="color:var(--muted);">vs. conventional servers 9 %/yr</span>
+        </div>
+      </div>
+
+      <div style="font-size:0.45em;color:var(--muted);text-align:right;margin-top:0.3em;">
+        2018: Masanet et al., <em>Science</em> (2020) &nbsp;·&nbsp; 2024–2030: IEA, <em>Energy and AI</em> (2025)
       </div>
     </div>
 
-    <!-- Right: key facts -->
-    <div style="font-size:0.67em;display:flex;flex-direction:column;gap:0.65em;">
+    <!-- Right: how demand is met -->
+    <div style="font-size:0.64em;">
+      <div style="font-weight:800;color:var(--nus-blue);margin-bottom:0.45em;">How is this electricity supplied today?</div>
 
-      <div class="card card-orange" style="padding:0.75em 1em;">
-        <div style="font-weight:800;color:var(--nus-orange);margin-bottom:0.2em;">📈 Growing 4× faster</div>
-        <div style="color:var(--text);">Data centre electricity has grown <strong>12 % per year</strong> since 2017 — four times faster than total global electricity demand.</div>
+      <div style="margin-bottom:0.35em;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.12em;"><span>Coal</span><strong style="color:var(--red);">~30 %</strong></div>
+        <div style="height:15px;background:#E2E8F0;border-radius:3px;"><div style="height:100%;background:var(--red);border-radius:3px;width:30%;"></div></div>
+      </div>
+      <div style="margin-bottom:0.35em;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.12em;"><span>Natural gas</span><strong style="color:var(--amber);">~26 %</strong></div>
+        <div style="height:15px;background:#E2E8F0;border-radius:3px;"><div style="height:100%;background:var(--amber);border-radius:3px;width:26%;"></div></div>
+      </div>
+      <div style="margin-bottom:0.35em;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.12em;"><span>Renewables</span><strong style="color:var(--green);">~27 %</strong></div>
+        <div style="height:15px;background:#E2E8F0;border-radius:3px;"><div style="height:100%;background:var(--green);border-radius:3px;width:27%;"></div></div>
+      </div>
+      <div style="margin-bottom:0.55em;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.12em;"><span>Nuclear</span><strong style="color:var(--teal);">~15 %</strong></div>
+        <div style="height:15px;background:#E2E8F0;border-radius:3px;"><div style="height:100%;background:var(--teal);border-radius:3px;width:15%;"></div></div>
       </div>
 
-      <div class="card card-blue" style="padding:0.75em 1em;">
-        <div style="font-weight:800;color:var(--nus-blue);margin-bottom:0.2em;">🤖 AI is the accelerant</div>
-        <div style="color:var(--text);">AI-driven servers are growing at <strong>30 % per year</strong> — three times faster than conventional servers (9 %/yr).</div>
+      <div class="card card-red" style="padding:0.6em 0.85em;font-size:0.95em;">
+        <strong style="color:var(--red);">~56 % fossil fuels</strong> power data centres today.<br>
+        Coal + gas will still meet <strong>&gt;40 %</strong> of new demand to 2030 — energy transition is essential.
       </div>
 
-      <div class="fragment card card-red" style="padding:0.75em 1em;">
-        <div style="font-weight:800;color:var(--red);margin-bottom:0.2em;">🌏 Scale check</div>
-        <div style="color:var(--text);">945 TWh exceeds <strong>Japan's entire annual electricity consumption</strong> — all added in just six years.</div>
+      <div style="font-size:0.72em;color:var(--muted);margin-top:0.25em;text-align:right;">
+        Source: IEA, <em>Energy and AI</em> (2025)
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- AI-2: Training energy cost -->
+<!-- AI-2: Supply chain footprint + 5 environmental problems -->
 <section data-background-color="#FFFFFF">
-  <h2>Training One AI Model: <span class="nus-orange">How Much Energy?</span></h2>
+  <h2>AI's Full Footprint: <span class="nus-orange">Supply Chain to Environment</span></h2>
   <div class="accent-bar"></div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2em;margin-top:0.5em;align-items:start;font-size:0.72em;">
+  <div style="display:grid;grid-template-columns:48% 52%;gap:1em;margin-top:0.35em;font-size:0.63em;">
 
+    <!-- Left: AI demand lifecycle -->
     <div>
-      <div style="font-size:0.82em;color:var(--muted);margin-bottom:0.9em;">Training GPT-3 (175 billion parameters) consumed:</div>
+      <div style="font-weight:800;color:var(--nus-blue);margin-bottom:0.4em;">⚡ Three Types of AI Electricity Demand</div>
+      <div style="display:flex;flex-direction:column;gap:0.4em;">
 
-      <!-- Big number -->
-      <div style="text-align:center;background:rgba(0,61,124,0.05);border:1px solid var(--border);border-radius:12px;padding:1em 0.5em;margin-bottom:0.8em;">
-        <span style="font-size:3.2em;font-weight:900;color:var(--nus-blue);line-height:1;display:block;">1,287 MWh</span>
-        <span style="font-size:0.72em;color:var(--muted);margin-top:0.2em;display:block;">of electricity — one training run</span>
-      </div>
+        <div class="card card-blue" style="padding:0.55em 0.8em;">
+          <div style="font-weight:700;color:var(--nus-blue);margin-bottom:0.1em;">① Chip manufacturing</div>
+          <div style="color:var(--text);">3 nm chip: <strong>2.3 MWh/wafer</strong>. TSMC alone consumes <strong>&gt;20 TWh/yr</strong> — nearly 10 % of Taiwan's total electricity.</div>
+        </div>
 
-      <!-- Equivalent -->
-      <div class="hbox" style="font-size:0.85em;">
-        ≈ Annual electricity use of <strong>120 U.S. households</strong>
+        <div class="card card-blue" style="padding:0.55em 0.8em;">
+          <div style="font-weight:700;color:var(--nus-blue);margin-bottom:0.1em;">② Model training <span style="font-weight:400;color:var(--muted);">(one-time)</span></div>
+          <div style="color:var(--text);">GPT-4: <strong>~42 GWh</strong> per run — the daily electricity of <strong>~28,500 households</strong>. The largest model to date required ~310 GWh.</div>
+        </div>
+
+        <div class="card card-blue" style="padding:0.55em 0.8em;">
+          <div style="font-weight:700;color:var(--nus-blue);margin-bottom:0.1em;">③ Inference <span style="font-weight:400;color:var(--muted);">(continuous, billions/day)</span></div>
+          <div style="color:var(--text);">Language query: <strong>~2 Wh</strong> &nbsp;·&nbsp; Image: <strong>~1.7 Wh</strong> &nbsp;·&nbsp; Video (6 s): <strong>~115 Wh</strong></div>
+        </div>
+
       </div>
-      <div style="font-size:0.52em;color:var(--muted);margin-top:0.5em;text-align:right;">
-        Source: Patterson et al. (2021), <em>Carbon Emissions and Large Neural Network Training</em>, arXiv:2104.10350
+      <div style="font-size:0.75em;color:var(--muted);margin-top:0.3em;text-align:right;">
+        Source: IEA, <em>Energy and AI</em> (2025)
       </div>
     </div>
 
-    <div style="display:flex;flex-direction:column;gap:0.7em;">
+    <!-- Right: 5 environmental problems -->
+    <div>
+      <div style="font-weight:800;color:var(--red);margin-bottom:0.4em;">🌍 Five Systemic Environmental Problems</div>
+      <div style="display:flex;flex-direction:column;gap:0.35em;">
 
-      <div class="card" style="padding:0.75em 1em;">
-        <div style="font-weight:800;color:var(--nus-blue);margin-bottom:0.2em;">📦 This is just the beginning</div>
-        <div>Models since GPT-3 have grown <strong>10–100× larger</strong>, with training runs that consume proportionally more energy.</div>
+        <div class="card card-red" style="padding:0.45em 0.75em;">
+          <span style="font-weight:700;">① Electricity system strain</span><br>
+          <span style="color:var(--muted);">+530 TWh new demand to 2030; ~20 % of projects risk grid delays (IEA, 2025)</span>
+        </div>
+
+        <div class="card card-red" style="padding:0.45em 0.75em;">
+          <span style="font-weight:700;">② CO₂ emissions</span><br>
+          <span style="color:var(--muted);">180 Mt (2024) → up to 500 Mt by 2035 — fastest-growing emissions sector (IEA, 2025)</span>
+        </div>
+
+        <div class="card card-red" style="padding:0.45em 0.75em;">
+          <span style="font-weight:700;">③ Water consumption</span><br>
+          <span style="color:var(--muted);">Google: 6.4 B gal/yr · Microsoft: 1.7 B gal/yr for cooling (Corporate reports, 2023)</span>
+        </div>
+
+        <div class="card card-red" style="padding:0.45em 0.75em;">
+          <span style="font-weight:700;">④ Critical minerals &amp; e-waste</span><br>
+          <span style="color:var(--muted);">Gallium: 99 % from China; servers replaced every 3–5 yrs — growing e-waste stream (IEA, 2025)</span>
+        </div>
+
+        <div class="card card-red" style="padding:0.45em 0.75em;">
+          <span style="font-weight:700;">⑤ Air pollution</span><br>
+          <span style="color:var(--muted);">Fossil-fuel plants built to power data centres emit NOₓ, SO₂ and particulates alongside CO₂</span>
+        </div>
+
       </div>
-
-      <div class="card" style="padding:0.75em 1em;">
-        <div style="font-weight:800;color:var(--nus-blue);margin-bottom:0.2em;">🔁 Training vs. Inference</div>
-        <div>Training happens once. But <strong>inference</strong> — answering billions of queries every day — adds up continuously across the entire infrastructure.</div>
-      </div>
-
-      <div class="fragment card card-red" style="padding:0.75em 1em;">
-        <div style="font-weight:800;color:var(--red);margin-bottom:0.2em;">⚡ The question</div>
-        <div>AI growth = data centre growth = electricity growth.<br>Where does that electricity come from?</div>
-      </div>
-
     </div>
   </div>
 </section>
