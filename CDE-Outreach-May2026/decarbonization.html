@@ -327,9 +327,9 @@
   <div class="accent-bar"></div>
 
   <!-- chart + right annotation column -->
-  <div style="display:grid;grid-template-columns:60fr 40fr;gap:0.8em;margin-top:0.3em;align-items:stretch;">
+  <div style="display:grid;grid-template-columns:53fr 47fr;gap:0.8em;margin-top:0.3em;align-items:stretch;">
 
-    <div class="chart-box" style="height:265px;">
+    <div class="chart-box" style="min-width:0;height:265px;">
       <canvas id="co2Chart"></canvas>
     </div>
 
@@ -387,7 +387,7 @@
   <h2 style="font-size:1.2em;">Global CO₂ Emissions: Where We Need to Go</h2>
   <div class="accent-bar"></div>
   <div style="display:grid;grid-template-columns:65fr 35fr;gap:0.8em;margin-top:0.3em;align-items:stretch;">
-    <div>
+    <div style="min-width:0;">
       <div class="chart-box" style="height:390px;">
         <canvas id="pathwayChart"></canvas>
       </div>
@@ -395,7 +395,7 @@
         Source: Global Carbon Project · IPCC AR6 (2022)
       </div>
     </div>
-    <div style="font-size:0.6em;padding:0.3em 1em 0.3em 0;text-align:left;">
+    <div style="min-width:0;font-size:0.6em;padding:0.3em 0.5em 0.3em 0;text-align:left;">
 
       <!-- Total share -->
       <div style="font-weight:700;color:var(--nus-orange);text-transform:uppercase;
