@@ -334,13 +334,14 @@
       <canvas id="co2Chart"></canvas>
 
       <!-- Hockey stick: upright, positioned at the right where CO₂ spikes -->
-      <img src="hockey-stick-photo.webp" class="fragment"
+      <img src="hockey-stick-photo.webp" class="fragment" data-fragment-index="2"
            style="position:absolute;top:-10px;right:2px;
                   height:260px;width:auto;
                   opacity:0.72;pointer-events:none;mix-blend-mode:multiply;">
 
-      <!-- Label: appears last as a fragment -->
-      <div class="fragment" style="position:absolute;top:8px;right:60px;
+      <!-- Label: same click as hockey stick -->
+      <div class="fragment" data-fragment-index="2"
+           style="position:absolute;top:8px;right:60px;
                   font-size:0.38em;font-weight:700;color:#0F172A;
                   writing-mode:vertical-rl;text-orientation:mixed;
                   letter-spacing:0.04em;">
@@ -371,7 +372,7 @@
     </div>
   </div>
 
-  <div class="fragment hbox" style="margin-top:0.5em;font-size:0.72em;">
+  <div class="fragment hbox" data-fragment-index="1" style="margin-top:0.5em;font-size:0.72em;">
     Rapid rise since 1760 (Industrial Revolution) is largely driven by a <strong>fossil fuel economy</strong> —
     burning coal, oil, and gas releases CO₂ stored underground for millions of years.
   </div>
