@@ -1995,9 +1995,13 @@ function initShipMap() {
   document.head.appendChild(script);
 }
 
-// ── idx 2=co2, 3=pathway, 7=powerMix, 8=renew, 9=solar, 12=evTrends, 17=food
-const chartMap = { 2:initCO2, 3:initPathway, 7:initPowerMix, 8:initRenewChart, 9:initSolar, 12:initEVTrends, 18:initFood };
-Reveal.on('slidechanged', e => { if (chartMap[e.indexh]) chartMap[e.indexh](); });
+// ── idx 2=co2, 3=pathway, 7=food(beef), 10=powerMix, 11=renew, 12=solar
+// (EV slides are uncounted supplementary — initialised separately)
+const chartMap = { 2:initCO2, 3:initPathway, 7:initFood, 10:initPowerMix, 11:initRenewChart, 12:initSolar };
+Reveal.on('slidechanged', e => {
+  if (chartMap[e.indexh]) chartMap[e.indexh]();
+  if (e.currentSlide.querySelector('#evChart')) initEVTrends();
+});
 
 // In print-pdf mode, slidechanged never fires — initialise all charts immediately
 if (window.location.search.includes('print-pdf')) {
