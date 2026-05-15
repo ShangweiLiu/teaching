@@ -329,28 +329,31 @@
   <!-- chart + right annotation column -->
   <div style="display:grid;grid-template-columns:53fr 47fr;gap:0.8em;margin-top:0.3em;align-items:stretch;">
 
-    <div class="chart-box" style="min-width:0;height:255px;">
+    <!-- chart with hockey stick overlaid -->
+    <div class="chart-box" style="min-width:0;height:265px;position:relative;">
       <canvas id="co2Chart"></canvas>
+      <img src="hockey-stick-photo.webp"
+           style="position:absolute;top:0;left:0;width:100%;height:100%;
+                  object-fit:contain;object-position:center;
+                  transform:rotate(-90deg);transform-origin:center center;
+                  opacity:0.45;pointer-events:none;mix-blend-mode:multiply;">
     </div>
 
     <!-- annotation column -->
     <div style="min-width:0;display:flex;flex-direction:column;justify-content:space-between;
-                height:255px;padding:0.3em 0;font-size:0.63em;">
+                height:265px;padding:0.3em 0;font-size:0.63em;">
 
-      <!-- 2025 -->
       <div style="border-left:3px solid var(--red);padding-left:0.75em;">
         <div style="font-size:1.5em;font-weight:900;color:var(--red);line-height:1.1;">426 ppm</div>
         <div style="font-weight:700;color:var(--red);margin-top:0.1em;">2025</div>
         <div style="color:var(--muted);margin-top:0.1em;">Highest in 3 million years</div>
       </div>
 
-      <!-- Year 2000 -->
       <div style="border-left:3px solid var(--nus-orange);padding-left:0.75em;">
         <div style="font-size:1.5em;font-weight:900;color:var(--nus-orange);line-height:1.1;">369 ppm</div>
         <div style="font-weight:700;color:var(--nus-orange);margin-top:0.1em;">Year 2000</div>
       </div>
 
-      <!-- Industrial Revolution -->
       <div style="border-left:3px solid var(--nus-blue);padding-left:0.75em;">
         <div style="font-size:1.5em;font-weight:900;color:var(--nus-blue);line-height:1.1;">~280 ppm</div>
         <div style="font-weight:700;color:var(--nus-blue);margin-top:0.1em;">Industrial Revolution</div>
@@ -359,26 +362,9 @@
     </div>
   </div>
 
-  <!-- Hockey stick image + hbox row -->
-  <div style="display:grid;grid-template-columns:53fr 47fr;gap:0.8em;margin-top:0.4em;align-items:center;">
-
-    <div class="fragment hbox" style="font-size:0.72em;">
-      Rapid rise since 1760 (Industrial Revolution) is largely driven by a <strong>fossil fuel economy</strong> —
-      burning coal, oil, and gas releases CO₂ stored underground for millions of years.
-    </div>
-
-    <!-- Hockey stick: rotated to horizontal, blade points up on the right -->
-    <div style="min-width:0;display:flex;flex-direction:column;align-items:center;gap:0.2em;">
-      <img src="hockey-stick-photo.webp"
-           style="height:90px;width:auto;
-                  transform:rotate(-90deg) scaleX(-1);
-                  transform-origin:center center;
-                  object-fit:contain;">
-      <div style="font-size:0.46em;color:var(--muted);font-style:italic;text-align:center;">
-        The "Hockey Stick Curve"
-      </div>
-    </div>
-
+  <div class="fragment hbox" style="margin-top:0.5em;font-size:0.72em;">
+    Rapid rise since 1760 (Industrial Revolution) is largely driven by a <strong>fossil fuel economy</strong> —
+    burning coal, oil, and gas releases CO₂ stored underground for millions of years.
   </div>
 </section>
 
