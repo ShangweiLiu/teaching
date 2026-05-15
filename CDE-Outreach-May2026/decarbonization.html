@@ -397,7 +397,7 @@
      4 — EMISSION PATHWAYS  (idx 4 → pathwayChart)
      ══════════════════════════════════════════ -->
 <section data-background-color="#FFFFFF">
-  <h2 style="font-size:1.2em;">Global CO₂ Emissions: Where We Need to Go</h2>
+  <h2 style="font-size:1.2em;">Global Greenhouse Gas Emissions: Where We Need to Go</h2>
   <div class="accent-bar"></div>
   <div style="display:grid;grid-template-columns:65fr 35fr;gap:0.8em;margin-top:0.3em;align-items:stretch;">
     <div style="min-width:0;">
@@ -405,32 +405,32 @@
         <canvas id="pathwayChart"></canvas>
       </div>
       <div style="text-align:right;font-size:0.48em;color:var(--muted);margin-top:0.2em;">
-        Source: Global Carbon Project · IPCC AR6 (2022)
+        Source: IPCC AR6 WG3 (2022) · Global Carbon Project · UNEP Emissions Gap Report (2024)
       </div>
     </div>
     <div style="min-width:0;font-size:0.6em;padding:0.3em 0.5em 0.3em 0;text-align:left;">
 
       <!-- Total share -->
       <div style="font-weight:700;color:var(--nus-orange);text-transform:uppercase;
-                  letter-spacing:0.08em;margin-bottom:0.45em;">Total emissions (2025)</div>
+                  letter-spacing:0.08em;margin-bottom:0.45em;">Total GHG share (2019)</div>
       <div style="display:grid;grid-template-columns:9em auto;
                   row-gap:0.35em;column-gap:0.6em;margin-bottom:0.9em;">
-        <span>🇨🇳 China</span><strong>32 %</strong>
-        <span>🇺🇸 USA</span><strong>13 %</strong>
-        <span>🇮🇳 India</span><strong>8 %</strong>
-        <span>🇪🇺 EU27 + UK</span><strong>6 %</strong>
+        <span>🇨🇳 China</span><strong>27 %</strong>
+        <span>🇺🇸 USA</span><strong>11 %</strong>
+        <span>🇮🇳 India</span><strong>7 %</strong>
+        <span>🇪🇺 EU27</span><strong>6 %</strong>
       </div>
 
       <!-- Per capita -->
       <div style="font-weight:700;color:var(--nus-orange);text-transform:uppercase;
-                  letter-spacing:0.08em;margin-bottom:0.45em;">Per capita (t/person, 2023)</div>
+                  letter-spacing:0.08em;margin-bottom:0.45em;">Per capita (tCO₂e, 2022)</div>
       <div style="display:grid;grid-template-columns:9em auto;
                   row-gap:0.35em;column-gap:0.6em;">
-        <span>🇺🇸 USA</span><strong>13.8 t</strong>
-        <span>🇨🇳 China</span><strong>9.2 t</strong>
-        <span>🇸🇬 Singapore</span><strong>8.9 t</strong>
-        <span>🇪🇺 EU</span><strong>5.7 t</strong>
-        <span>🇮🇳 India</span><strong>2.1 t</strong>
+        <span>🇺🇸 USA</span><strong>17.6 t</strong>
+        <span>🇨🇳 China</span><strong>9.7 t</strong>
+        <span>🇸🇬 Singapore</span><strong>9.5 t</strong>
+        <span>🇪🇺 EU</span><strong>7.8 t</strong>
+        <span>🇮🇳 India</span><strong>2.9 t</strong>
       </div>
     </div>
   </div>
@@ -522,57 +522,58 @@
      EMISSIONS TREEMAP
      ══════════════════════════════════════════ -->
 <section data-background-color="#FFFFFF">
-  <h2>Where Do CO₂ Emissions Come From?</h2>
+  <h2>Where Do Greenhouse Gas Emissions Come From?</h2>
   <div class="accent-bar"></div>
 
-  <!-- Treemap: CO₂-only data (IEA)
-       Row 1 (Electricity + Transportation + Industry = 86%): flex:86
-       Row 2 (Building Heat + Other = 14%):                  flex:14 -->
+  <!-- Treemap: All-GHG data (IPCC AR6 WG3, 2019)
+       Row 1 (Electricity 34 + Industry 24 + Transport 15 = 73%): flex:73
+       Row 2 (Food Systems 22 + Others 5 = 27%):                  flex:27 -->
   <div style="height:370px;display:flex;flex-direction:column;gap:4px;margin-top:0.3em;">
 
-    <!-- Row 1 — 86% of height -->
-    <div style="flex:86;display:flex;gap:4px;">
+    <!-- Row 1 — 73% of height -->
+    <div style="flex:73;display:flex;gap:4px;">
 
-      <!-- Electricity 41% -->
-      <div style="flex:41;background:#003D7C;border-radius:8px;
+      <!-- Electricity 34% -->
+      <div style="flex:34;background:#003D7C;border-radius:8px;
                   display:flex;flex-direction:column;justify-content:center;
                   align-items:center;color:#fff;text-align:center;padding:0.5em;">
         <div style="font-size:0.78em;font-weight:700;margin-bottom:0.2em;">⚡ ELECTRICITY</div>
-        <div style="font-size:2em;font-weight:900;line-height:1;">41 %</div>
+        <div style="font-size:2em;font-weight:900;line-height:1;">34 %</div>
         <div style="font-size:0.6em;opacity:0.75;margin-top:0.35em;line-height:1.4;">
-          Industry · Buildings · EVs · Data centres
+          Power generation · Heat supply<br>Data centres · Industry electrification
         </div>
       </div>
 
-      <!-- Transportation 24% -->
-      <div style="flex:24;background:#F59E0B;border-radius:8px;
-                  display:flex;flex-direction:column;justify-content:center;
-                  align-items:center;color:#fff;text-align:center;padding:0.5em;">
-        <div style="font-size:0.75em;font-weight:700;margin-bottom:0.2em;">🚗 TRANSPORTATION</div>
-        <div style="font-size:1.6em;font-weight:900;line-height:1;">24 %</div>
-        <div style="font-size:0.58em;opacity:0.8;margin-top:0.3em;">Road · Shipping · Aviation</div>
-      </div>
-
-      <!-- Industry 21% -->
-      <div style="flex:21;background:#EF7C00;border-radius:8px;
+      <!-- Industry 24% -->
+      <div style="flex:24;background:#EF7C00;border-radius:8px;
                   display:flex;flex-direction:column;justify-content:center;
                   align-items:center;color:#fff;text-align:center;padding:0.5em;">
         <div style="font-size:0.75em;font-weight:700;margin-bottom:0.2em;">🏭 INDUSTRY</div>
-        <div style="font-size:1.5em;font-weight:900;line-height:1;">21 %</div>
+        <div style="font-size:1.6em;font-weight:900;line-height:1;">24 %</div>
         <div style="font-size:0.58em;opacity:0.8;margin-top:0.3em;">Steel · Cement · Chemicals</div>
+      </div>
+
+      <!-- Transportation 15% -->
+      <div style="flex:15;background:#F59E0B;border-radius:8px;
+                  display:flex;flex-direction:column;justify-content:center;
+                  align-items:center;color:#fff;text-align:center;padding:0.5em;">
+        <div style="font-size:0.68em;font-weight:700;margin-bottom:0.2em;">🚗 TRANSPORT</div>
+        <div style="font-size:1.4em;font-weight:900;line-height:1;">15 %</div>
+        <div style="font-size:0.55em;opacity:0.8;margin-top:0.3em;">Road · Aviation · Shipping</div>
       </div>
 
     </div>
 
-    <!-- Row 2 — 14% of height, fixed to prevent overflow -->
-    <div style="height:52px;flex-shrink:0;display:flex;gap:4px;">
+    <!-- Row 2 — 27% of height -->
+    <div style="flex:27;display:flex;gap:4px;">
 
-      <!-- Building Heat 9% -->
-      <div style="flex:9;background:#0891B2;border-radius:8px;
+      <!-- Food Systems & Land Use 22% -->
+      <div style="flex:22;background:#059669;border-radius:8px;
                   display:flex;flex-direction:column;justify-content:center;
-                  align-items:center;color:#fff;text-align:center;
-                  padding:0 0.4em;overflow:hidden;">
-        <div style="font-size:0.58em;font-weight:700;white-space:nowrap;">🔥 BUILDING HEAT DIRECT COMBUSTION &nbsp;9 %</div>
+                  align-items:center;color:#fff;text-align:center;padding:0.4em 0.5em;">
+        <div style="font-size:0.68em;font-weight:700;margin-bottom:0.15em;">🌾 FOOD SYSTEMS &amp; LAND USE</div>
+        <div style="font-size:1.6em;font-weight:900;line-height:1;">22 %</div>
+        <div style="font-size:0.55em;opacity:0.8;margin-top:0.15em;">Livestock · Deforestation · Agriculture</div>
       </div>
 
       <!-- Others 5% -->
@@ -580,13 +581,13 @@
                   display:flex;flex-direction:column;justify-content:center;
                   align-items:center;color:#fff;text-align:center;
                   padding:0 0.3em;overflow:hidden;">
-        <div style="font-size:0.6em;font-weight:700;white-space:nowrap;">OTHERS &nbsp;5 %</div>
+        <div style="font-size:0.58em;font-weight:700;white-space:nowrap;">OTHERS &nbsp;5 %</div>
       </div>
 
     </div>
   </div>
   <div style="font-size:0.45em;color:var(--muted);text-align:right;margin-top:0.2em;">
-    Source: IEA (2023) — fossil fuel CO₂ only
+    Source: IPCC AR6 WG3 (2022) — all greenhouse gases, 2019
   </div>
 </section>
 
@@ -1562,29 +1563,29 @@ function initPathway() {
   if (done.pathway) return; done.pathway = true;
   const ctx = document.getElementById('pathwayChart'); if (!ctx) return;
 
-  // x-axis labels (years)
+  // x-axis labels (years) — extended to 2070
   const labels = [
     '1990','1995','2000','2005','2010','2015','2019',
-    '2020','2021','2022','2023','2025',
-    '2030','2035','2040','2045','2050','2055','2060','2065'
+    '2020','2022','2023','2024','2025',
+    '2030','2035','2040','2045','2050','2055','2060','2065','2070'
   ];
-  // index 11 = 2025 ("we are here" split point)
+  // index 11 = 2025 ("we are here" split point
 
-  // Historical total CO₂ (fossil + LUC, Gt/yr — Global Carbon Project)
-  const hist = [24,25,26.5,30,33.5,36,37.5, 34,36.5,37.2,37.5,37.8,
-                null,null,null,null,null,null,null,null];
+  // Historical total GHG all gases (GtCO₂e/yr — IPCC AR6 WG3, GCP, UNEP)
+  const hist = [37,40,42,46,49,53,59, 55,58,59,59,59.5,
+                null,null,null,null,null,null,null,null,null];
 
-  // Business-as-usual (current implemented policies)
-  const bau  = [null,null,null,null,null,null,null, null,null,null,null,37.8,
-                40,42,43.5,44.5,45.5,46,47,47.5];
+  // Business-as-usual (current implemented policies → ~3.2°C)
+  const bau  = [null,null,null,null,null,null,null, null,null,null,null,59.5,
+                57,58,58,58,57,57,56,55,55];
 
-  // 1.5 °C pathway — net zero ~2050
-  const p15  = [null,null,null,null,null,null,null, null,null,null,null,37.8,
-                25,14,6,1.5,0,null,null,null];
+  // 1.5°C pathway (IPCC AR6 C1, median) — net zero GHG ~2070
+  const p15  = [null,null,null,null,null,null,null, null,null,null,null,59.5,
+                29,18,12,7,4,1,-1,-2,-2];
 
-  // 2.0 °C pathway — net zero ~2065
-  const p20  = [null,null,null,null,null,null,null, null,null,null,null,37.8,
-                32,26,19,13,7,3,0.5,0];
+  // 2.0°C pathway (IPCC AR6 C3, median) — net zero CO₂ ~2070
+  const p20  = [null,null,null,null,null,null,null, null,null,null,null,59.5,
+                40,32,25,22,19,14,9,5,3];
 
   // Annotation plugin — labels directly on lines, no legend needed
   const pwAnnotations = {
@@ -1617,19 +1618,19 @@ function initPathway() {
 
       // ── 2.0°C — index 14 (2040), above the orange line
       const x40 = x.getPixelForValue(14);
-      const y20 = y.getPixelForValue(19);
+      const y20 = y.getPixelForValue(25);
       c2.fillStyle = C.orange;
       c2.font = F; c2.textAlign = 'left';
-      c2.fillText('Net Zero ~2065', x40 + 6, y20 - LH - 4);
-      c2.fillText('→ 2.0°C',        x40 + 6, y20 - 4);
+      c2.fillText('Net Zero CO₂ ~2070', x40 + 6, y20 - LH - 4);
+      c2.fillText('→ 2.0°C',           x40 + 6, y20 - 4);
 
-      // ── 1.5°C — moved left to index 12 (2030), lower position
+      // ── 1.5°C — index 12 (2030)
       const x30 = x.getPixelForValue(12);
-      const y15 = y.getPixelForValue(8);
+      const y15 = y.getPixelForValue(12);
       c2.fillStyle = C.green;
       c2.font = F; c2.textAlign = 'left';
-      c2.fillText('Net Zero 2050', x30 + 6, y15 + 4);
-      c2.fillText('→ 1.5°C',       x30 + 6, y15 + 4 + LH);
+      c2.fillText('Net Zero GHG ~2070', x30 + 6, y15 + 4);
+      c2.fillText('→ 1.5°C',            x30 + 6, y15 + 4 + LH);
 
       c2.restore();
     }
@@ -1682,14 +1683,14 @@ function initPathway() {
         legend: { display: false },
         tooltip: {
           ...baseTip,
-          callbacks: { label: c => c.raw != null ? '  ' + c.raw + ' Gt CO₂/yr' : null },
+          callbacks: { label: c => c.raw != null ? '  ' + c.raw + ' GtCO₂e/yr' : null },
         },
       },
       scales: {
-        x: { ticks:{color:C.muted,maxRotation:0,autoSkip:true,maxTicksLimit:8}, grid:{color:gridLine} },
+        x: { ticks:{color:C.muted,maxRotation:0,autoSkip:true,maxTicksLimit:9}, grid:{color:gridLine} },
         y: {
-          min: 0, max: 52,
-          title: { display:true, text:'Annual CO₂ emissions (Gt / yr)', color:C.muted, font:{size:17, family:'Inter'} },
+          min: -5, max: 65,
+          title: { display:true, text:'GHG emissions (GtCO₂e / yr)', color:C.muted, font:{size:17, family:'Inter'} },
           ticks: { color:tickColor, callback: v => v + ' Gt' },
           grid: { color: gridLine },
         },
