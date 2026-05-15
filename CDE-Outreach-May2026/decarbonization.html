@@ -1571,8 +1571,9 @@ function initPathway() {
   ];
   // index 11 = 2025 ("we are here" split point
 
-  // Historical total GHG all gases (GtCO₂e/yr — IPCC AR6 WG3, GCP, UNEP)
-  const hist = [37,40,42,46,49,53,59, 55,58,59,59,59.5,
+  // Historical total GHG all gases (GtCO₂e/yr — IPCC AR6 WG3)
+  // Key anchors: 1990=38 (59÷1.54), 2010=52.7 (59÷1.12), 2019=59
+  const hist = [38,40.5,43,46.5,52.7,55,59, 55,57.5,58.5,59,59.5,
                 null,null,null,null,null,null,null,null,null];
 
   // Business-as-usual (current implemented policies → ~3.2°C)
@@ -1580,12 +1581,15 @@ function initPathway() {
                 57,58,58,58,57,57,56,55,55];
 
   // 1.5°C pathway (IPCC AR6 C1, median) — net zero GHG ~2070
+  // 2030: 21–36 GtCO₂e median ~29; 2050: 1–15 median ~7
   const p15  = [null,null,null,null,null,null,null, null,null,null,null,59.5,
                 29,18,12,7,4,1,-1,-2,-2];
 
-  // 2.0°C pathway (IPCC AR6 C3, median) — net zero CO₂ ~2070
+  // 2°C pathway (IPCC AR6 C3, median) — total GHG (not CO₂ only)
+  // 2030: 30–49 median ~39; 2050: 14–26 median ~20
+  // Net zero CO₂ ~2070 but non-CO₂ GHG (agri CH₄, N₂O) still ~10 Gt at 2070
   const p20  = [null,null,null,null,null,null,null, null,null,null,null,59.5,
-                40,32,25,22,19,14,9,5,3];
+                39,32,26,22,20,17,14,12,10];
 
   // Annotation plugin — labels directly on lines, no legend needed
   const pwAnnotations = {
@@ -1621,8 +1625,8 @@ function initPathway() {
       const y20 = y.getPixelForValue(25);
       c2.fillStyle = C.orange;
       c2.font = F; c2.textAlign = 'left';
-      c2.fillText('Net Zero CO₂ ~2070', x40 + 6, y20 - LH - 4);
-      c2.fillText('→ 2.0°C',           x40 + 6, y20 - 4);
+      c2.fillText('~10 Gt residual GHG at 2070', x40 + 6, y20 - LH - 4);
+      c2.fillText('→ 2.0°C pathway',            x40 + 6, y20 - 4);
 
       // ── 1.5°C — index 12 (2030)
       const x30 = x.getPixelForValue(12);
