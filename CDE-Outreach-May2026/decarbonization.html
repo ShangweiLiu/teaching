@@ -397,7 +397,7 @@
      4 — EMISSION PATHWAYS  (idx 4 → pathwayChart)
      ══════════════════════════════════════════ -->
 <section data-background-color="#FFFFFF">
-  <h2 style="font-size:1.2em;">Global Greenhouse Gas Emissions: Where We Need to Go</h2>
+  <h2 style="font-size:1.2em;">Global CO₂ Emissions: Where We Need to Go</h2>
   <div class="accent-bar"></div>
   <div style="display:grid;grid-template-columns:65fr 35fr;gap:0.8em;margin-top:0.3em;align-items:stretch;">
     <div style="min-width:0;">
@@ -405,32 +405,32 @@
         <canvas id="pathwayChart"></canvas>
       </div>
       <div style="text-align:right;font-size:0.48em;color:var(--muted);margin-top:0.2em;">
-        Source: IPCC AR6 WG3 (2022) · Global Carbon Project · UNEP Emissions Gap Report (2024)
+        Source: Global Carbon Project · IPCC AR6 (2022)
       </div>
     </div>
     <div style="min-width:0;font-size:0.6em;padding:0.3em 0.5em 0.3em 0;text-align:left;">
 
       <!-- Total share -->
       <div style="font-weight:700;color:var(--nus-orange);text-transform:uppercase;
-                  letter-spacing:0.08em;margin-bottom:0.45em;">Total GHG share (2019)</div>
+                  letter-spacing:0.08em;margin-bottom:0.45em;">Total emissions (2025)</div>
       <div style="display:grid;grid-template-columns:9em auto;
                   row-gap:0.35em;column-gap:0.6em;margin-bottom:0.9em;">
-        <span>🇨🇳 China</span><strong>27 %</strong>
-        <span>🇺🇸 USA</span><strong>11 %</strong>
-        <span>🇮🇳 India</span><strong>7 %</strong>
-        <span>🇪🇺 EU27</span><strong>6 %</strong>
+        <span>🇨🇳 China</span><strong>32 %</strong>
+        <span>🇺🇸 USA</span><strong>13 %</strong>
+        <span>🇮🇳 India</span><strong>8 %</strong>
+        <span>🇪🇺 EU27 + UK</span><strong>6 %</strong>
       </div>
 
       <!-- Per capita -->
       <div style="font-weight:700;color:var(--nus-orange);text-transform:uppercase;
-                  letter-spacing:0.08em;margin-bottom:0.45em;">Per capita (tCO₂e, 2022)</div>
+                  letter-spacing:0.08em;margin-bottom:0.45em;">Per capita (t CO₂, 2023)</div>
       <div style="display:grid;grid-template-columns:9em auto;
                   row-gap:0.35em;column-gap:0.6em;">
-        <span>🇺🇸 USA</span><strong>17.6 t</strong>
-        <span>🇨🇳 China</span><strong>9.7 t</strong>
-        <span>🇸🇬 Singapore</span><strong>9.5 t</strong>
-        <span>🇪🇺 EU</span><strong>7.8 t</strong>
-        <span>🇮🇳 India</span><strong>2.9 t</strong>
+        <span>🇺🇸 USA</span><strong>13.8 t</strong>
+        <span>🇨🇳 China</span><strong>9.2 t</strong>
+        <span>🇸🇬 Singapore</span><strong>8.9 t</strong>
+        <span>🇪🇺 EU</span><strong>5.7 t</strong>
+        <span>🇮🇳 India</span><strong>2.1 t</strong>
       </div>
     </div>
   </div>
@@ -1563,33 +1563,29 @@ function initPathway() {
   if (done.pathway) return; done.pathway = true;
   const ctx = document.getElementById('pathwayChart'); if (!ctx) return;
 
-  // x-axis labels (years) — extended to 2070
+  // x-axis labels (years)
   const labels = [
     '1990','1995','2000','2005','2010','2015','2019',
-    '2020','2022','2023','2024','2025',
-    '2030','2035','2040','2045','2050','2055','2060','2065','2070'
+    '2020','2021','2022','2023','2025',
+    '2030','2035','2040','2045','2050','2055','2060','2065'
   ];
-  // index 11 = 2025 ("we are here" split point
+  // index 11 = 2025 ("we are here" split point)
 
-  // Historical total GHG all gases (GtCO₂e/yr — IPCC AR6 WG3)
-  // Key anchors: 1990=38 (59÷1.54), 2010=52.7 (59÷1.12), 2019=59
-  const hist = [38,40.5,43,46.5,52.7,55,59, 55,57.5,58.5,59,59.5,
-                null,null,null,null,null,null,null,null,null];
+  // Historical total CO₂ (fossil + LUC, Gt/yr — Global Carbon Project)
+  const hist = [24,25,26.5,30,33.5,36,37.5, 34,36.5,37.2,37.5,37.8,
+                null,null,null,null,null,null,null,null];
 
-  // Business-as-usual (current implemented policies → ~3.2°C)
-  const bau  = [null,null,null,null,null,null,null, null,null,null,null,59.5,
-                57,58,58,58,57,57,56,55,55];
+  // Business-as-usual (current implemented policies)
+  const bau  = [null,null,null,null,null,null,null, null,null,null,null,37.8,
+                40,42,43.5,44.5,45.5,46,47,47.5];
 
-  // 1.5°C pathway (IPCC AR6 C1, median) — net zero GHG ~2070
-  // 2030: 21–36 GtCO₂e median ~29; 2050: 1–15 median ~7
-  const p15  = [null,null,null,null,null,null,null, null,null,null,null,59.5,
-                29,18,12,7,4,1,-1,-2,-2];
+  // 1.5°C pathway — net zero ~2050
+  const p15  = [null,null,null,null,null,null,null, null,null,null,null,37.8,
+                25,14,6,1.5,0,null,null,null];
 
-  // 2°C pathway (IPCC AR6 C3, median) — total GHG (not CO₂ only)
-  // 2030: 30–49 median ~39; 2050: 14–26 median ~20
-  // Net zero CO₂ ~2070 but non-CO₂ GHG (agri CH₄, N₂O) still ~10 Gt at 2070
-  const p20  = [null,null,null,null,null,null,null, null,null,null,null,59.5,
-                39,32,26,22,20,17,14,12,10];
+  // 2.0°C pathway — net zero ~2065
+  const p20  = [null,null,null,null,null,null,null, null,null,null,null,37.8,
+                32,26,19,13,7,3,0.5,0];
 
   // Annotation plugin — labels directly on lines, no legend needed
   const pwAnnotations = {
@@ -1622,19 +1618,19 @@ function initPathway() {
 
       // ── 2.0°C — index 14 (2040), above the orange line
       const x40 = x.getPixelForValue(14);
-      const y20 = y.getPixelForValue(25);
+      const y20 = y.getPixelForValue(19);
       c2.fillStyle = C.orange;
       c2.font = F; c2.textAlign = 'left';
-      c2.fillText('~10 Gt residual GHG at 2070', x40 + 6, y20 - LH - 4);
-      c2.fillText('→ 2.0°C pathway',            x40 + 6, y20 - 4);
+      c2.fillText('Net Zero ~2065', x40 + 6, y20 - LH - 4);
+      c2.fillText('→ 2.0°C',       x40 + 6, y20 - 4);
 
       // ── 1.5°C — index 12 (2030)
       const x30 = x.getPixelForValue(12);
-      const y15 = y.getPixelForValue(12);
+      const y15 = y.getPixelForValue(8);
       c2.fillStyle = C.green;
       c2.font = F; c2.textAlign = 'left';
-      c2.fillText('Net Zero GHG ~2070', x30 + 6, y15 + 4);
-      c2.fillText('→ 1.5°C',            x30 + 6, y15 + 4 + LH);
+      c2.fillText('Net Zero 2050', x30 + 6, y15 + 4);
+      c2.fillText('→ 1.5°C',       x30 + 6, y15 + 4 + LH);
 
       c2.restore();
     }
@@ -1687,14 +1683,14 @@ function initPathway() {
         legend: { display: false },
         tooltip: {
           ...baseTip,
-          callbacks: { label: c => c.raw != null ? '  ' + c.raw + ' GtCO₂e/yr' : null },
+          callbacks: { label: c => c.raw != null ? '  ' + c.raw + ' Gt CO₂/yr' : null },
         },
       },
       scales: {
-        x: { ticks:{color:C.muted,maxRotation:0,autoSkip:true,maxTicksLimit:9}, grid:{color:gridLine} },
+        x: { ticks:{color:C.muted,maxRotation:0,autoSkip:true,maxTicksLimit:8}, grid:{color:gridLine} },
         y: {
-          min: -5, max: 65,
-          title: { display:true, text:'GHG emissions (GtCO₂e / yr)', color:C.muted, font:{size:17, family:'Inter'} },
+          min: 0, max: 52,
+          title: { display:true, text:'Annual CO₂ emissions (Gt / yr)', color:C.muted, font:{size:17, family:'Inter'} },
           ticks: { color:tickColor, callback: v => v + ' Gt' },
           grid: { color: gridLine },
         },
